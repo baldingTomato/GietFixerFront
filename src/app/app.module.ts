@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
+import { RepairmentComponent } from './repairment/repairment.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    RepairmentComponent
   ],
   imports: [
     BrowserModule,
