@@ -1,0 +1,13 @@
+.card{
+    background-image: url('loginbg.png');
+    background-size: cover;
+    border: none !important; 
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.witaj{
+    text-align: center;
+    font-size: 30px;
+    color:#3479aa
+}
