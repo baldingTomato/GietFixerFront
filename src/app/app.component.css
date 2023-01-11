@@ -1,0 +1,9 @@
+
+.bg {
+    background-image: url('background.png');
+    background-size: contain;
+    position: absolute;
+    top: 56px;
+    height: calc(100% - 56px);
+    width: 100%;
+  }
