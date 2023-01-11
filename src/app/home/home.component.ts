@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  users = [
-    { value: 'tomasz', label: 'T' },
-    { value: 'mAteusz', label: 'M' },
-    { value: 'ola', label: 'O' },
-    { value: 'kareta', label: 'K' }
-  ]
+  kurwy = [
+    {id: 1, name:'Tomasz'},
+    {id: 2, name:'Piotr'},
+    {id: 5, name:'Zakochana'},
+    {id: 3, name:'Para'},
+    {id: 4, name:'LOOOOOO'}
+];
 
   constructor() { }
 

@@ -6,34 +6,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repairment.component.css']
 })
 
-class Naprawy {
-  private values: { [key: string]: any[] } = {};
-
-  setValues(key: string, ...values: any[]) {
-    this.values[key] = values;
-  }
-
-  getValues(key: string) {
-    return this.values[key];
-  }
-}
-
-const container = new Naprawy();
-container.setValues('key1', "komura", "tv", "telefon", "huwhauw");
-container.setValues('key2', "audi", "komp", "warga", "ponczek");
 
 export class RepairmentComponent implements OnInit {
   content?: string;
+  showCompleted: boolean = false;
 
-  users = [
-    { value: 'tomasz', label: 'T' },
-    { value: 'mAteusz', label: 'M' },
-    { value: 'ola', label: 'O' },
-    { value: 'kareta', label: 'K' }
-  ]
+  naprawy = [
 
-  constructor() { }
+    {
+      id: 1,
+      customer: "Tomasz",
+      total: 12.50,
+      status: "zielony",
+      remarks: "hildegard.org",
+      stan: "gazowy",
+    },
+    {
+      id: 2,
+      customer: "Johnny",
+      total: 100.00,
+      status: "zjeb",
+      remarks: "no spoko",
+      stan: "gazowy",
+    },
+    {
+      id: 3,
+      customer: "Rumcajs",
+      total: 1.23,
+      status: "zakochany",
+      remarks: "zaraz oszaleje",
+      stan: "ciekły",
+    },
+    {
+      id: 4,
+      customer: "Alonzo",
+      total: 123.50,
+      status: "baran",
+      remarks: "stabilnie",
+      stan: "gazowy",
+    }
 
+];
+
+  
+  
   ngOnInit(): void {
     // this.userService.getPublicContent().subscribe({
     //   next: data => {

@@ -1,17 +1,24 @@
 <div class="container mt-5">
+
+  <input type="checkbox" [(ngModel)]="showCompleted"> Show Completed
+  
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Id naprawy</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Remarks</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let key of Object.keys(naprawy)">
-        <th scope="row">{{ key }}</th>
-        <td *ngFor="let value of naprawy[key]">{{ value }}</td>
+      <tr *ngFor="let naprawa of naprawy" *ngIf="showCompleted ? naprawa.stan === 'gazowy' : true">
+        <td>{{naprawa.id}}</td>
+        <td>{{naprawa.customer}}</td>
+        <td>{{naprawa.total}}</td>
+        <td>{{naprawa.status}}</td>
+        <td>{{naprawa.remarks}}</td>
       </tr>
     </tbody>
   </table>
