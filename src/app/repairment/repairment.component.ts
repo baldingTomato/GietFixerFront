@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class RepairmentComponent implements OnInit {
   content?: string;
-  showCompleted: boolean = false;
+  showGazowy: boolean = false;
+  showCiekly: boolean = false;
+  showStaly: boolean = false;
 
   naprawy = [
 
@@ -17,7 +19,7 @@ export class RepairmentComponent implements OnInit {
       id: 1,
       customer: "Tomasz",
       total: 12.50,
-      status: "zielony",
+      kolor: "zielony",
       remarks: "hildegard.org",
       stan: "gazowy",
     },
@@ -25,7 +27,7 @@ export class RepairmentComponent implements OnInit {
       id: 2,
       customer: "Johnny",
       total: 100.00,
-      status: "zjeb",
+      kolor: "zjeb",
       remarks: "no spoko",
       stan: "gazowy",
     },
@@ -33,17 +35,33 @@ export class RepairmentComponent implements OnInit {
       id: 3,
       customer: "Rumcajs",
       total: 1.23,
-      status: "zakochany",
+      kolor: "zakochany",
       remarks: "zaraz oszaleje",
-      stan: "ciekły",
+      stan: "ciekly",
     },
     {
       id: 4,
       customer: "Alonzo",
       total: 123.50,
-      status: "baran",
+      kolor: "baran",
       remarks: "stabilnie",
       stan: "gazowy",
+    },
+    {
+      id: 5,
+      customer: "Co ludzie powiedza?",
+      total: 444.50,
+      kolor: "gowno",
+      remarks: "piwko",
+      stan: "staly",
+    },
+    {
+      id: 6,
+      customer: "626",
+      total: 123.50,
+      kolor: "sticz",
+      remarks: "taki stwor z bajki",
+      stan: "staly",
     }
 
 ];
