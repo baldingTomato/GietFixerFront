@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   content?: string;
+  Customer: string = '';
+  Item: string = '';
+  EstimatedCost: number = 0.0;
+  Employee: string= '';
+  Remarks: string= '';
 
   kurwy = [
     {id: 1, name:'Tomasz'},
@@ -15,6 +21,12 @@ export class HomeComponent implements OnInit {
     {id: 3, name:'Para'},
     {id: 4, name:'LOOOOOO'}
 ];
+
+
+
+submit() {
+  // your submit logic here
+}
 
   constructor() { }
 
