@@ -1,7 +1,8 @@
-<!--
 <div class="container mt-5">
 
-<input type="checkbox" [(ngModel)]="showCompleted"> Show Completed
+  <input type="checkbox" [(ngModel)]="showGazowy"> Show Gazowy
+  <input type="checkbox" [(ngModel)]="showCiekly"> Show Ciekly
+  <input type="checkbox" [(ngModel)]="showStaly"> Show Staly
   
   <table class="table table-bordered">
     <thead>
@@ -14,13 +15,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let naprawa of naprawy" *ngIf="showCompleted ? naprawa.stan === 'gazowy' : true">
+      <ng-container *ngFor="let naprawa of naprawy">
+      <tr *ngIf='showGazowy && naprawa.stan === "gazowy"'>
         <td>{{naprawa.id}}</td>
         <td>{{naprawa.customer}}</td>
         <td>{{naprawa.total}}</td>
-        <td>{{naprawa.status}}</td>
+        <td>{{naprawa.kolor}}</td>
         <td>{{naprawa.remarks}}</td>
       </tr>
+      <tr *ngIf='showCiekly && naprawa.stan === "ciekly"'>
+        <td>{{naprawa.id}}</td>
+        <td>{{naprawa.customer}}</td>
+        <td>{{naprawa.total}}</td>
+        <td>{{naprawa.kolor}}</td>
+        <td>{{naprawa.remarks}}</td>
+      </tr>
+      <tr *ngIf='showStaly && naprawa.stan === "staly"'>
+        <td>{{naprawa.id}}</td>
+        <td>{{naprawa.customer}}</td>
+        <td>{{naprawa.total}}</td>
+        <td>{{naprawa.kolor}}</td>
+        <td>{{naprawa.remarks}}</td>
+      </tr>
+    </ng-container>
     </tbody>
   </table>
-</div>-->
+</div>
