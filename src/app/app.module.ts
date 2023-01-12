@@ -13,6 +13,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { RepairmentComponent } from './repairment/repairment.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RepairmentComponent } from './repairment/repairment.component';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    RepairmentComponent
+    RepairmentComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
