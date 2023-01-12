@@ -25,4 +25,30 @@
       </select>
     </form>
 
+  <br><br>
+
+  <h3>Dodaj naprawę:</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Item</th>
+          <th>EstimatedCost</th>
+          <th>Employee</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input [(ngModel)]="Customer" class="form-control"></td>
+          <td><input [(ngModel)]="Item" class="form-control"></td>
+          <td><input [(ngModel)]="EstimatedCost" class="form-control"></td>
+          <td><input [(ngModel)]="Employee" class="form-control"></td>
+          <td><input [(ngModel)]="Remarks" class="form-control"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button [disabled]="!Customer || !Item || !EstimatedCost || !Employee" (click)="submit()" class="btn btn-primary">Submit</button>
+
   </div>
