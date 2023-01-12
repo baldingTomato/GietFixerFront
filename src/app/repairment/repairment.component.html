@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" style="background-color:azure">
 
   <input type="checkbox" [(ngModel)]="showGazowy"> Show Gazowy
   <input type="checkbox" [(ngModel)]="showCiekly"> Show Ciekly
@@ -12,6 +12,7 @@
         <th>Total</th>
         <th>Status</th>
         <th>Remarks</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td>{{naprawa.total}}</td>
         <td>{{naprawa.kolor}}</td>
         <td>{{naprawa.remarks}}</td>
+
       </tr>
       <tr *ngIf='showCiekly && naprawa.stan === "ciekly"'>
         <td>{{naprawa.id}}</td>
