@@ -9,7 +9,6 @@ export class AppComponent {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   username?: string;
 
   constructor() { }
@@ -28,7 +27,7 @@ export class AppComponent {
     // }
   }
 
-  logout(): void {
+  logOut(event: boolean): void {
     // this.tokenStorageService.signOut();
     // window.location.reload();
   }
