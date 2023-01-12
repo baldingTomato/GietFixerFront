@@ -1,9 +1,8 @@
 <div class="container mt-5" style="background-color:azure">
-
   <input type="checkbox" [(ngModel)]="showGazowy"> Show Gazowy
   <input type="checkbox" [(ngModel)]="showCiekly"> Show Ciekly
   <input type="checkbox" [(ngModel)]="showStaly"> Show Staly
-  
+
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -17,29 +16,41 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let naprawa of naprawy">
-      <tr *ngIf='showGazowy && naprawa.stan === "gazowy"'>
-        <td>{{naprawa.id}}</td>
-        <td>{{naprawa.customer}}</td>
-        <td>{{naprawa.total}}</td>
-        <td>{{naprawa.kolor}}</td>
-        <td>{{naprawa.remarks}}</td>
-
-      </tr>
-      <tr *ngIf='showCiekly && naprawa.stan === "ciekly"'>
-        <td>{{naprawa.id}}</td>
-        <td>{{naprawa.customer}}</td>
-        <td>{{naprawa.total}}</td>
-        <td>{{naprawa.kolor}}</td>
-        <td>{{naprawa.remarks}}</td>
-      </tr>
-      <tr *ngIf='showStaly && naprawa.stan === "staly"'>
-        <td>{{naprawa.id}}</td>
-        <td>{{naprawa.customer}}</td>
-        <td>{{naprawa.total}}</td>
-        <td>{{naprawa.kolor}}</td>
-        <td>{{naprawa.remarks}}</td>
-      </tr>
-    </ng-container>
+        <tr *ngIf='showGazowy && naprawa.stan === "gazowy"'>
+          <td>{{naprawa.id}}</td>
+          <td>{{naprawa.customer}}</td>
+          <td>{{naprawa.total}}</td>
+          <td>{{naprawa.kolor}}</td>
+          <td>{{naprawa.remarks}}</td>
+          <td>
+            <button (click)="deleteNaprawa(naprawa)"><img [src]="delete" style="height: 20px"></button>
+            <button (click)="editNaprawa(naprawa)"><img [src]="edit" style="height: 20px"></button>
+            <!--<button (click)="deleteNaprawa(naprawa)"><img [src]="check" style="height: 20px"></button>-->
+          </td>
+        </tr>
+        <tr *ngIf='showCiekly && naprawa.stan === "ciekly"'>
+          <td>{{naprawa.id}}</td>
+          <td>{{naprawa.customer}}</td>
+          <td>{{naprawa.total}}</td>
+          <td>{{naprawa.kolor}}</td>
+          <td>{{naprawa.remarks}}</td>
+          <td>
+            <button (click)="deleteNaprawa(naprawa)"><img [src]="delete" style="height: 20px"></button>
+            <button (click)="editNaprawa(naprawa)"><img [src]="edit" style="height: 20px"></button>
+          </td>
+        </tr>
+        <tr *ngIf='showStaly && naprawa.stan === "staly"'>
+          <td>{{naprawa.id}}</td>
+          <td>{{naprawa.customer}}</td>
+          <td>{{naprawa.total}}</td>
+          <td>{{naprawa.kolor}}</td>
+          <td>{{naprawa.remarks}}</td>
+          <td>
+            <button (click)="deleteNaprawa(naprawa)"><img [src]="delete" style="height: 20px"></button>
+            <button (click)="editNaprawa(naprawa)"><img [src]="edit" style="height: 20px"></button>
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>

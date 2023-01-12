@@ -13,6 +13,11 @@ export class RepairmentComponent implements OnInit {
   showCiekly: boolean = false;
   showStaly: boolean = false;
 
+  delete = 'assets/delete.png'
+  edit = 'assets/edit.png'
+  check = 'assets/check.png'
+  selectedNaprawa: any;
+
   naprawy = [
 
     {
@@ -66,6 +71,18 @@ export class RepairmentComponent implements OnInit {
 
 ];
 
+  deleteNaprawa(naprawa: any) {
+    if (confirm("Are you sure you want to delete this naprawa?")) {
+      const index = this.naprawy.indexOf(naprawa);
+      this.naprawy.splice(index, 1);
+    }
+  }
+
+  editNaprawa(naprawa: any) {
+    if (confirm("Are you sure you want to edit?")) {
+      this.selectedNaprawa = naprawa;
+    }
+  }
   
   
   ngOnInit(): void {
