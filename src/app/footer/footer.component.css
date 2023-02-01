@@ -1,0 +1,40 @@
+footer{
+    bottom: 0;
+    position: absolute;
+    color:aliceblue;
+    text-shadow: 0 0 5px #fff;
+    word-wrap: break-word;
+}
+
+
+.divinny{
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    padding: 10px;
+    background-color:transparent;
+    border-radius: 5px;
+    left: 140px;
+    max-width: 1100PX;
+    
+}
+
+
+.divinny2{
+    background-image: url('notebg.png');
+    width: 500px;
+    float: left;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+    
+
+.form-container {
+    position: fixed;
+    top: 89%;
+    left: 120px;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-radius: 5px;
+    }

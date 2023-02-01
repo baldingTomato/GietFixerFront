@@ -1,11 +1,14 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">GietFixer</a>
+<a href="#">
+<div class="logo"></div></a>
+<div class="container d-flex justify-content-center border-bottom ">
+<nav class="navbar navbar-expand"style="width: 100%;">
+
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      <li class="nav-item" style="padding-left: 80px;">
+        <a href="/home" class="nav-link" routerLink="home" style="color: #375597;">Home </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a href="/admin" class="nav-link" routerLink="admin" >Admin Board</a>
       </li>
       <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
@@ -14,10 +17,10 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        <a href="/register" class="nav-link" routerLink="register" style="color: #375597;">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+        <a href="/login" class="nav-link" routerLink="login" style="color: #375597;">Login</a>
       </li>
     </ul>
 
@@ -30,3 +33,4 @@
       </li>
     </ul>
   </nav>
+</div>

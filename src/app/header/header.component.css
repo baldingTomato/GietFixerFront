@@ -1,0 +1,19 @@
+.container{
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-bottom-color: #375597 !important;
+    width: 100%;
+}
+
+.logo{
+    background-image: url('logo.png');
+    height: 66px;
+    width: 189px;
+    position: absolute;
+    left:7%;
+    top:3px;
+}
+
+.navbar{
+color: #375597;
+}

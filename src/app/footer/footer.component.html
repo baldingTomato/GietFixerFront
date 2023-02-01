@@ -1,0 +1,24 @@
+<footer>
+  <button style="" (click)="addNote()">Add Note</button>
+  <div class="divinny" *ngIf="notes.length > 2" [ngStyle]="{'height': '200px', 'overflow-y': 'scroll'}">
+    <div class="divinny2" *ngFor="let n of notes" (click)="deleteNote(n)">
+      <div style="background-color: transparent; padding-right: 10px; margin: 10px ;">
+        {{ n.substring(0, 300) }}
+      </div>
+    </div>
+  </div>
+  <div class="divinny" *ngIf="notes.length <= 2" [ngStyle]="{'max-height': 'none', 'overflow-y': 'none'}">
+    <div class="divinny2" *ngFor="let n of notes" (click)="deleteNote(n)">
+      <div style="background-color: transparent; padding-right: 10px; margin: 10px ;">
+        {{ n }}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showForm" class="form-container" style="height:100px; width:230px">
+    <form (submit)="submitNote()">
+      <textarea [(ngModel)]="note" name="note" style="width:100%" (keydown.enter)="submitNote()"></textarea>
+      <button style="position: absolute;left: 11px;bottom: 0;" type="submit">Submit</button>
+      <button style="position: absolute;left: 80px;bottom: 0;" type="button" (click)="cancelNote()">Cancel</button>
+    </form>
+  </div>
+</footer>
