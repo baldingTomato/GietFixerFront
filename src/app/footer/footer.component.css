@@ -14,7 +14,6 @@ footer{
     padding: 10px;
     background-color:transparent;
     border-radius: 5px;
-    left: 140px;
     max-width: 1100PX;
     
 }
@@ -33,7 +32,7 @@ footer{
 .form-container {
     position: fixed;
     top: 89%;
-    left: 120px;
+    left: 7.5%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     border-radius: 5px;
