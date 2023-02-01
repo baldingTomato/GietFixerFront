@@ -1,0 +1,11 @@
+export * from './customer.service';
+import { CustomerService } from './customer.service';
+export * from './employee.service';
+import { EmployeeService } from './employee.service';
+export * from './item.service';
+import { ItemService } from './item.service';
+export * from './payment.service';
+import { PaymentService } from './payment.service';
+export * from './repairment.service';
+import { RepairmentService } from './repairment.service';
+export const APIS = [CustomerService, EmployeeService, ItemService, PaymentService, RepairmentService];
