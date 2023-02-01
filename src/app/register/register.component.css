@@ -1,12 +1,15 @@
-.card{
-    background-image: url('loginbg.png');
-    background-color: transparent;
-    background-size: cover;
-    border: none !important; 
-    padding: 40px;
-    margin-top: 20px;
-    border-radius: 5%;
-}
+.card {
+    padding: 20px;
+    background-color: #cccccc;
+    border-radius: 17px;
+    }
+    
+    .container{
+      border: 2px solid #375597; /* set border color to blue */
+      border-radius: 20px;
+      padding: 5px;
+      margin: 5px;
+    }
 
 .witaj{
     text-align: center;
