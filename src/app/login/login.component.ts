@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from "../api";
 // import { AuthService } from '../_services/auth.service';
 // import { TokenStorageService } from '../_services/token-storage.service';
 
@@ -15,15 +16,21 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
+  itemService : ItemService;
   roles: string[] = [];
 
-  constructor() { }
+  constructor(iser : ItemService ) {
 
-  ngOnInit(): void {
-    // if (this.tokenStorage.getToken()) {
-    //   this.isLoggedIn = true;
-    //   this.roles = this.tokenStorage.getUser().roles;
-    // }
+      this.itemService = iser;
+
+   }
+
+  async ngOnInit() {
+
+    console.log("dupa");
+    console.log(await this.itemService.apiItemGet().toPromise());
+    console.log("chuj");
+
   }
 
   onSubmit(): void {

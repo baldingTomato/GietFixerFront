@@ -320,7 +320,6 @@ export class RepairmentService {
         }
 
         return this.httpClient.delete<any>(`${this.configuration.basePath}/api/Repairment/${encodeURIComponent(String(repairmentId))}`,
-            null,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

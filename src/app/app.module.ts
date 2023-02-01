@@ -16,6 +16,12 @@ import { RepairmentComponent } from './repairment/repairment.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
+import { ConfigurationParameters } from './api';
+
+const configParams: ConfigurationParameters = {
+  basePath: 'https://localhost:7167'
+};
 
 @NgModule({
   declarations: [
@@ -36,9 +42,13 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ApiModule
   ],
-  providers: [],
+
+  providers: [
+    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams) }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
