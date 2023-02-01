@@ -131,7 +131,6 @@ export class EmployeeService {
         }
 
         return this.httpClient.delete<any>(`${this.configuration.basePath}/api/Employee/${encodeURIComponent(String(employeeId))}`,
-            null,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

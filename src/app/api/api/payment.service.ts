@@ -190,7 +190,6 @@ export class PaymentService {
         }
 
         return this.httpClient.delete<any>(`${this.configuration.basePath}/api/Payment/${encodeURIComponent(String(paymentId))}`,
-            null,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

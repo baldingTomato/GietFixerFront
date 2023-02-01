@@ -182,7 +182,6 @@ export class ItemService {
         }
 
         return this.httpClient.delete<any>(`${this.configuration.basePath}/api/Item/${encodeURIComponent(String(itemId))}`,
-            null,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
