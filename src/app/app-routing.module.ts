@@ -10,6 +10,8 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { RepairmentComponent } from './repairment/repairment.component';
 import { LogoutComponent } from './login/logout.component';
 import { AuthGuard } from './api/service/authentication-guard';
+import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent ,canActivate: [AuthGuard] },
@@ -22,8 +24,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
- // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'update/:id', component: AppUpdateRepairmentComponent },
+  { path: 'payment', component: PaymentComponent }
 ];
 
 @NgModule({
