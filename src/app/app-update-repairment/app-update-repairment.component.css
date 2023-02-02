@@ -1,0 +1,13 @@
+.card {
+    padding: 20px;
+    background-color: #cccccc;
+    border-radius: 17px;
+    }
+    
+.container{
+    border: 2px solid #375597; /* set border color to blue */
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+}
+    

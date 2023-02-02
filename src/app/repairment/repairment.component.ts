@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -70,6 +71,7 @@ export class RepairmentComponent implements OnInit {
     }
 
 ];
+  constructor(private router: Router) { }
 
   deleteNaprawa(naprawa: any) {
     if (confirm("Are you sure you want to delete this naprawa?")) {
@@ -80,10 +82,10 @@ export class RepairmentComponent implements OnInit {
 
   editNaprawa(naprawa: any) {
     if (confirm("Are you sure you want to edit?")) {
-      this.selectedNaprawa = naprawa;
+      this.router.navigate(['/edit-naprawa', naprawa]);
     }
   }
-  
+
   
   ngOnInit(): void {
     // this.userService.getPublicContent().subscribe({
