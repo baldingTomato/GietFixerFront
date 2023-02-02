@@ -13,7 +13,11 @@ export class HomeComponent implements OnInit {
   EstimatedCost: number = 0.0;
   Employee: string= '';
   Remarks: string= '';
+  static readonly  AddTab = "ADD";
+  static readonly  RepairmentsTab = "REPAIRMENTS";
+  static readonly  Contact = "CONTACT";
 
+  selectedTab = HomeComponent.AddTab;
   kurwy = [
     {id: 1, name:'Tomasz'},
     {id: 2, name:'Piotr'},
@@ -22,7 +26,9 @@ export class HomeComponent implements OnInit {
     {id: 4, name:'LOOOOOO'}
 ];
 
-
+setTab(tab:string){
+  this.selectedTab = tab;
+}
 
 submit() {
   // your submit logic here

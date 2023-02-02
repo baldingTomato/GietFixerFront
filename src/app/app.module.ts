@@ -18,6 +18,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
 import { ConfigurationParameters } from './api';
+import { AuthService } from './api/service/authentication-service';
+import { LogoutComponent } from './login/logout.component';
 import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
 
 const configParams: ConfigurationParameters = {
@@ -37,6 +39,7 @@ const configParams: ConfigurationParameters = {
     RepairmentComponent,
     HeaderComponent,
     FooterComponent,
+    LogoutComponent,
     AppUpdateRepairmentComponent
   ],
   imports: [
@@ -49,7 +52,9 @@ const configParams: ConfigurationParameters = {
   ],
 
   providers: [
-    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams) }
+    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams),
+       }, 
+       AuthService
   ],
   bootstrap: [AppComponent]
 })
