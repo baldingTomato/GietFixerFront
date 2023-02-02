@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
 import { ConfigurationParameters } from './api';
+import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
 
 const configParams: ConfigurationParameters = {
   basePath: 'https://localhost:7167'
@@ -35,7 +36,8 @@ const configParams: ConfigurationParameters = {
     BoardUserComponent,
     RepairmentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AppUpdateRepairmentComponent
   ],
   imports: [
     BrowserModule,
