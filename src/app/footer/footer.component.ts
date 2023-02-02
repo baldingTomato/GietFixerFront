@@ -14,6 +14,12 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // Check if there are any saved notes in session storage
+    const savedNotes = sessionStorage.getItem('notes');
+    if (savedNotes) {
+      // If there are, parse the savedNotes string into an array of strings
+      this.notes = JSON.parse(savedNotes);
+    }
   }
 
   addNote() {
@@ -34,6 +40,9 @@ export class FooterComponent implements OnInit {
     this.notes.push(this.note);
     this.note = '';
     this.showForm = false;
+
+    // Save the notes to session storage
+    sessionStorage.setItem('notes', JSON.stringify(this.notes));
   }
 
   deleteNote(note: string) {
@@ -41,6 +50,8 @@ export class FooterComponent implements OnInit {
     const index = this.notes.indexOf(note);
     if (index > -1) {
     this.notes.splice(index, 1);
+    // Save the updated notes to session storage
+    sessionStorage.setItem('notes', JSON.stringify(this.notes));
     }
   }
 }
