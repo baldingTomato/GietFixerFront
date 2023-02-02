@@ -21,7 +21,7 @@ import { ConfigurationParameters } from './api';
 import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
 
 const configParams: ConfigurationParameters = {
-  basePath: 'https://localhost:7167'
+  basePath: 'https://localhost:7167/'
 };
 
 @NgModule({
@@ -45,7 +45,7 @@ const configParams: ConfigurationParameters = {
     FormsModule,
     HttpClientModule,
     CommonModule,
-    ApiModule
+    ApiModule,
   ],
 
   providers: [

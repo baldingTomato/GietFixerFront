@@ -1,0 +1,27 @@
+<div class="container">
+<div class="card">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id płatności</th>
+        <th>Value</th>
+        <th>Repairment</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let pay of payments">
+        <tr>
+          <td>{{pay.id}}</td>
+          <td>{{pay.value}}</td>
+          <td>{{pay.repairment}}</td>
+          <td>
+            <button (click)="deletePayment(pay.id)"><img [src]="delete" style="height: 20px"></button>
+            <button (click)="editPayment(pay.id)"><img [src]="edit" style="height: 20px"></button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+</div>

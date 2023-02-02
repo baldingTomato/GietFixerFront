@@ -21,6 +21,59 @@ export class RepairmentComponent implements OnInit {
   selectedRepairment: any;
   repairmentService : RepairmentService;
 
+  naprawy = [
+
+    {
+      id: 1,
+      customer: "Tomasz",
+      total: 12.50,
+      kolor: "zielony",
+      remarks: "hildegard.org",
+      stan: "gazowy",
+    },
+    {
+      id: 2,
+      customer: "Johnny",
+      total: 100.00,
+      kolor: "zjeb",
+      remarks: "no spoko",
+      stan: "gazowy",
+    },
+    {
+      id: 3,
+      customer: "Rumcajs",
+      total: 1.23,
+      kolor: "zakochany",
+      remarks: "zaraz oszaleje",
+      stan: "ciekly",
+    },
+    {
+      id: 4,
+      customer: "Alonzo",
+      total: 123.50,
+      kolor: "baran",
+      remarks: "stabilnie",
+      stan: "gazowy",
+    },
+    {
+      id: 5,
+      customer: "Co ludzie powiedza?",
+      total: 444.50,
+      kolor: "gowno",
+      remarks: "piwko",
+      stan: "staly",
+    },
+    {
+      id: 6,
+      customer: "626",
+      total: 123.50,
+      kolor: "sticz",
+      remarks: "taki stwor z bajki",
+      stan: "staly",
+    }
+
+];
+
 repairments: any;
 
 constructor(rser : RepairmentService, private http: HttpClient, private router: Router) {
