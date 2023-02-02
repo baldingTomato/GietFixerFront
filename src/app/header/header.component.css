@@ -17,3 +17,7 @@
 .navbar{
 color: #375597;
 }
+
+.active {
+    text-shadow: 0 0 15px #599ffb;;
+}

@@ -1,8 +1,10 @@
-<div class="container mt-5" style="background-color:azure">
-  <input type="checkbox" [(ngModel)]="showGazowy"> Show Gazowy
-  <input type="checkbox" [(ngModel)]="showCiekly"> Show Ciekly
-  <input type="checkbox" [(ngModel)]="showStaly"> Show Staly
-
+<div class="container">
+<div class="card">
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="showGazowy" style="margin-left: 15px;"> Show Gazowy
+    <input type="checkbox" [(ngModel)]="showCiekly" style="margin-left: 15px;"> Show Ciekly
+    <input type="checkbox" [(ngModel)]="showStaly" style="margin-left: 15px;"> Show Staly
+  </div>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -53,4 +55,5 @@
       </ng-container>
     </tbody>
   </table>
+</div>
 </div>
