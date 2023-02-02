@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'repairment', component: RepairmentComponent },
-  { path: 'update', component: AppUpdateRepairmentComponent},
+  { path: 'update/:id', component: AppUpdateRepairmentComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
