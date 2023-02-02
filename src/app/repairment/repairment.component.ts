@@ -97,8 +97,8 @@ deleteRepairment(repairmentId: string) {
   }
 }
 
-editRepairment(repairmentId: string) {
-  this.router.navigate(['/update', repairmentId]);
+editRepairment(selectedRepairment: any) {
+  this.router.navigate(['/update', selectedRepairment.id], { queryParams: { repairment: JSON.stringify(selectedRepairment) } });
 }
   
   

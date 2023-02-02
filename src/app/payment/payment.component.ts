@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from "../api";
 import { PaymentService } from "../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
