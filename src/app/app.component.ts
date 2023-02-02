@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './api/service/authentication-service';
 
 @Component({
   selector: 'app-root',
@@ -6,29 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private roles: string[] = [];
-  isLoggedIn = false;
-  showAdminBoard = false;
-  username?: string;
+  public isLoggedIn: boolean;
+  public showAdminBoard: boolean;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    // this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    // if (this.isLoggedIn) {
-    //   const user = this.tokenStorageService.getUser();
-    //   this.roles = user.roles;
-
-    //   this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-    //   this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-
-    //   this.username = user.username;
-    // }
-  }
-
-  logOut(event: boolean): void {
-    // this.tokenStorageService.signOut();
-    // window.location.reload();
+  constructor(private authenticationService: AuthService) {
+    this.isLoggedIn = !!this.authenticationService.currentUserValue;
+    this.showAdminBoard = !!this.authenticationService.currentUserValue;
   }
 }

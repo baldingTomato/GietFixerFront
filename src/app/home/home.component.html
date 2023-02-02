@@ -6,15 +6,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'ADD'}" >
+          <a class="nav-link" (click)="setTab('ADD')">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="repairment">Repairment</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'REPAIRMENTS'}">
+          <a class="nav-link" (click)="setTab('REPAIRMENTS')">Repairment</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'CONTACT'}">
+          <a class="nav-link" (click)="setTab('CONTACT')">Contact</a>
         </li>
+
       </ul>
     </div>
   </nav>
@@ -28,7 +32,8 @@
 
   <br><br>
 
-  <h3>Add repairment:</h3>
+  <div *ngIf="selectedTab === 'ADD'">
+    <h3>Add repairment:</h3>
 
     <table class="table">
       <thead>
@@ -51,8 +56,17 @@
       </tbody>
     </table>
     <button [disabled]="!Customer || !Item || !EstimatedCost || !Employee" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+  </div>
+
+  <div *ngIf="selectedTab==='REPAIRMENTS'">
+    <app-repairments></app-repairments>
+  </div>
+  
+  <div *ngIf="selectedTab==='CONTACT'">
+    KONTAKT
+  </div>
 
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer *ngIf="selectedTab==='ADD'"></app-footer>
 

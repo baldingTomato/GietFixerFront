@@ -1,12 +1,13 @@
 
-<div class="container-fluid" style="">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <div class="container">
       <div class="card" >
         <div class="witaj">Welcome Back</div>
-        <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="form-group">
             <div class="text" style="text-align:center; margin-top:10px">
               Enter your details to log in
@@ -15,25 +16,15 @@
               to your account.
             </div>
             <label for="username">Username</label>
-            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" type="text" class="form-control" name="username" [(ngModel)]="email" required
                    #username="ngModel" />
-            <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
-              Username is required!
-            </div>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px " type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-                   #password="ngModel" />
-            <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
-              <div *ngIf="password.errors['required']">Password is required</div>
-              <div *ngIf="password.errors['minlength']">
-                Password must be at least 6 characters
-              </div>
-            </div>
+            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
           </div>
           <div class="form-group">
-            <button class="btn btn-primary btn-block" style="background-color: #007BCE;">
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #007BCE;">
               Login
             </button>
           </div>
@@ -41,16 +32,7 @@
 
 
           <input type="checkbox"> Remember password
-          <div class="form-group">
-            <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-              Login failed: {{ errorMessage }}
-            </div>
-          </div>
         </form>
-
-        <div class="alert alert-success" *ngIf="isLoggedIn">
-          Logged in as {{ roles }}.
-        </div>
       </div>
     </div>
     </div>

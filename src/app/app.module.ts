@@ -18,6 +18,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
 import { ConfigurationParameters } from './api';
+import { AuthService } from './api/service/authentication-service';
+import { LogoutComponent } from './login/logout.component';
 
 const configParams: ConfigurationParameters = {
   basePath: 'https://localhost:7167'
@@ -35,7 +37,8 @@ const configParams: ConfigurationParameters = {
     BoardUserComponent,
     RepairmentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,9 @@ const configParams: ConfigurationParameters = {
   ],
 
   providers: [
-    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams) }
+    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams),
+       }, 
+       AuthService
   ],
   bootstrap: [AppComponent]
 })

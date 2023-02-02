@@ -1,56 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemService } from "../api";
-// import { AuthService } from '../_services/auth.service';
-// import { TokenStorageService } from '../_services/token-storage.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../api/service/authentication-service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.css']
 })
-export class LoginComponent implements OnInit {
-  form: any = {
-    username: null,
-    password: null
-  };
-  isLoggedIn = false;
+export class LoginComponent {
+  email: string = '';
+  password: string = '';
+
+  passwordErrors = {};
   isLoginFailed = false;
   errorMessage = '';
-  itemService : ItemService;
   roles: string[] = [];
 
-  constructor(iser : ItemService ) {
-
-      this.itemService = iser;
-
-   }
-
-  async ngOnInit() {
-
-    console.log("dupa");
-    console.log(await this.itemService.apiItemGet().toPromise());
-    console.log("chuj");
-
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
-    const { username, password } = this.form;
-
-    // this.authService.login(username, password).subscribe({
-    //   next: data => {
-    //     this.tokenStorage.saveToken(data.accessToken);
-    //     this.tokenStorage.saveUser(data);
-
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.roles = this.tokenStorage.getUser().roles;
-    //     this.reloadPage();
-    //   },
-    //   error: err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-    // });
+    if (this.authService.login(this.email, this.password)) {
+      this.router.navigate(['/home']);
+    } else {
+      // Display an error message
+    }
   }
 
   reloadPage(): void {
