@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   static readonly  Contact = "CONTACT";
 
   selectedTab = HomeComponent.AddTab;
-  kurwy = [
+  names = [
     {id: 1, name:'Tomasz'},
     {id: 2, name:'Piotr'},
     {id: 5, name:'Zakochana'},
