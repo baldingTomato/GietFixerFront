@@ -50,15 +50,29 @@
       </thead>
       <tbody>
         <tr>
-          <td><input [(ngModel)]="Customer" class="form-control"></td>
-          <td><input [(ngModel)]="Item" class="form-control"></td>
+          <td>
+            <select [(ngModel)]="selectedCustomerId" class="form-control">
+              <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.lastName }}</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="selectedItemId" class="form-control">
+              <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
+            </select>
+          </td>
           <td><input [(ngModel)]="EstimatedCost" class="form-control"></td>
-          <td><input [(ngModel)]="Employee" class="form-control"></td>
+          <td>
+            <select [(ngModel)]="selectedEmployeeId" class="form-control">
+              <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lastName }}</option>
+            </select>
+          </td>
           <td><input [(ngModel)]="Remarks" class="form-control"></td>
         </tr>
       </tbody>
     </table>
-    <button [disabled]="!Customer || !Item || !EstimatedCost || !Employee" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+    <button
+            [disabled]="!selectedCustomerId || !selectedItemId || !selectedEmployeeId" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">
+    Submit</button>
   </div>
 
   <div *ngIf="selectedTab==='REPAIRMENTS'">
