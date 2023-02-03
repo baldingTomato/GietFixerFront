@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 
 export class RepairmentComponent implements OnInit {
   content?: string;
-  showGazowy: boolean = false;
-  showCiekly: boolean = false;
-  showStaly: boolean = false;
+  Oczekiwane: boolean = false;
+  Wtrakcie: boolean = false;
+  Zakonczone: boolean = false;
 
   delete = 'assets/delete.png'
   edit = 'assets/edit.png'
