@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { CustomerService, EmployeeService, ItemService, RepairmentService } from "../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApiModule } from '../api';
 
 @Component({
   selector: 'app-home',
@@ -58,9 +59,10 @@ export class HomeComponent implements OnInit {
     let repairmentRequest = {
       estimatedCost: this.EstimatedCost,
       remarks: this.Remarks,
-      employee: this.selectedEmployee,
-      customer: this.selectedCustomer,
-      item: this.selectedItem
+      employee: this.selectedEmployee.id,
+      customer: this.selectedCustomer.id,
+      item: this.selectedItem.id,
+      repairments: []
       
     };
     this.repairmentService.apiRepairmentPost(repairmentRequest)

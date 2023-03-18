@@ -48,7 +48,6 @@ editPayment(paymentId: string) {
   
 async ngOnInit(){
 
-    console.log("dupa");
 
     this.paymentService.apiPaymentGet().subscribe(
       data => {
@@ -57,7 +56,5 @@ async ngOnInit(){
     );
 
     console.log(this.payments);
-
-    console.log("chuj");
   }
 }
