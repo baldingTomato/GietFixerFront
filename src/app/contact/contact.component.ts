@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'; // add this line
 
 @Component({
-    selector: 'app-home',
+    selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.css']
 })
