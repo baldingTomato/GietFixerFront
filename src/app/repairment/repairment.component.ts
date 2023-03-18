@@ -51,7 +51,6 @@ editRepairment(selectedRepairment: any) {
   
 async ngOnInit(){
 
-    console.log("dupa");
 
     this.repairmentService.apiRepairmentGet().subscribe(
       data => {
@@ -60,8 +59,6 @@ async ngOnInit(){
       }
     );
 
-    
-
-    console.log("chuj");
+   
   }
 }
