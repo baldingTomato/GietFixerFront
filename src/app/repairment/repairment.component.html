@@ -26,8 +26,8 @@
           <td>{{rep.item}}</td>
           <td>
             <button (click)="deleteRepairment(rep.id)"><img [src]="delete" style="height: 20px"></button>
-            <button (click)="editRepairment(rep.id)"><img [src]="edit" style="height: 20px"></button>
-            <!--<button (click)="deleteNaprawa(naprawa)"><img [src]="check" style="height: 20px"></button>-->
+            <button (click)="editRepairment(rep.id)"><img [src]="edit" style="height: 20px"></button>-->
+            <button (click)="deleteNaprawa(naprawa)"><img [src]="check" style="height: 20px"></button>-->
           </td>
         </tr>
         <tr *ngIf='showCiekly && rep.status === 0'>
@@ -56,4 +56,4 @@
     </tbody>
   </table>
 </div>
-</div>
+</div> 
