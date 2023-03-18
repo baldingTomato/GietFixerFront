@@ -1,24 +1,28 @@
-import { EventEmitter } from '@angular/core';
-import { Output } from '@angular/core';
-import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-// import { AuthService } from '../_services/auth.service';
-// import { TokenStorageService } from '../_services/token-storage.service';
+import { AuthGuard } from '../api/service/authentication-guard';
+import { AuthService } from '../api/service/authentication-service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent  {
-  @Input() isLoggedIn = false;
-  @Input() showAdminBoard = false;
-  @Output() logOut = new EventEmitter<boolean>();
+export class HeaderComponent implements OnInit {
 
-
-  makeUserLogOut(){
-    this.logOut.emit(true);
+  authGuard: AuthService;
+  isLoggedIn = false;
+  constructor(service:AuthService){
+    this.authGuard = service;
+    this.authGuard.currentUser.subscribe(u=>{
+      if(u.email !== 'default'){
+        this.isLoggedIn = true;
+      }
+    })
   }
 
-
+  ngOnInit(): void {
+    this.authGuard.loggedIn.subscribe(b => {
+      this.isLoggedIn = b;
+    })
+  }
 }

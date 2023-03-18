@@ -1,9 +1,9 @@
 <div class="container">
 <div class="card">
   <div class="row">
-    <input type="checkbox" [(ngModel)]="showGazowy" style="margin-left: 15px;"> Show Gazowy
-    <input type="checkbox" [(ngModel)]="showCiekly" style="margin-left: 15px;"> Show Ciekly
-    <input type="checkbox" [(ngModel)]="showStaly" style="margin-left: 15px;"> Show Staly
+    <input type="checkbox" [(ngModel)]="Oczekiwane" style="margin-left: 15px;"> Oczekiwane
+    <input type="checkbox" [(ngModel)]="Wtrakcie" style="margin-left: 15px;"> W trakcie
+    <input type="checkbox" [(ngModel)]="Zakonczone" style="margin-left: 15px;"> Zakonczone
   </div>
   <table class="table table-bordered">
     <thead>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let rep of repairments">
-        <tr *ngIf='showGazowy'>
+        <tr *ngIf='Oczekiwane && rep.status === 0'>
           <td>{{rep.id}}</td>
           <td>{{rep.customer}}</td>
           <td>{{rep.total}}</td>
@@ -26,11 +26,11 @@
           <td>{{rep.item}}</td>
           <td>
             <button (click)="deleteRepairment(rep.id)"><img [src]="delete" style="height: 20px"></button>
-            <button (click)="editRepairment(rep.id)"><img [src]="edit" style="height: 20px"></button>-->
-            <button (click)="deleteNaprawa(naprawa)"><img [src]="check" style="height: 20px"></button>-->
+            <button (click)="editRepairment(rep)"><img [src]="edit" style="height: 20px"></button>
+            <!--<button (click)="deleteNaprawa(naprawa)"><img [src]="check" style="height: 20px"></button>-->
           </td>
         </tr>
-        <tr *ngIf='showCiekly && rep.status === 0'>
+        <tr *ngIf='Wtrakcie && rep.status === 1'>
           <td>{{rep.id}}</td>
           <td>{{rep.customer}}</td>
           <td>{{rep.total}}</td>
@@ -38,10 +38,10 @@
           <td>{{rep.item}}</td>
           <td>
             <button (click)="deleteRepairment(rep.id)"><img [src]="delete" style="height: 20px"></button>
-            <button (click)="editRepairment(rep.id)"><img [src]="edit" style="height: 20px"></button>
+            <button (click)="editRepairment(rep)"><img [src]="edit" style="height: 20px"></button>
           </td>
         </tr>
-        <tr *ngIf='showStaly && rep.status === 0'>
+        <tr *ngIf='Zakonczone && rep.status === 2'>
           <td>{{rep.id}}</td>
           <td>{{rep.customer}}</td>
           <td>{{rep.total}}</td>
@@ -49,7 +49,7 @@
           <td>{{rep.item}}</td>
           <td>
             <button (click)="deleteRepairment(rep.id)"><img [src]="delete" style="height: 20px"></button>
-            <button (click)="editRepairment(rep.id)"><img [src]="edit" style="height: 20px"></button>
+            <button (click)="editRepairment(rep)"><img [src]="edit" style="height: 20px"></button>
           </td>
         </tr>
       </ng-container>

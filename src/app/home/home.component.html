@@ -6,15 +6,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="home">Home</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'ADD'}" >
+          <a class="nav-link" (click)="setTab('ADD')">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="repairment">Repairment</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'REPAIRMENTS'}">
+          <a class="nav-link" (click)="setTab('REPAIRMENTS')">Repairment</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact">Contact</a>
+
+        <li [ngClass]="{'nav-item active': selectedTab === 'CONTACT'}">
+          <a class="nav-link" (click)="setTab('CONTACT')">Contact</a>
         </li>
+        <li [ngClass]="{'nav-item active': selectedTab === 'PAYMENT'}">
+          <a class="nav-link" (click)="setTab('PAYMENT')">Payment</a>
+        </li>
+
       </ul>
     </div>
   </nav>
@@ -22,13 +29,14 @@
     <form>
       <label for="cars">Dziubnij klienta:</label><br>
       <select id="cars" name="cars">
-        <option *ngFor="let kurwa of kurwy" [value]="kurwa.name">{{ kurwa.name }}</option>
+        <option *ngFor="let name of names" [value]="name.name">{{ name.name }}</option>
       </select>
     </form>
 
   <br><br>
 
-  <h3>Add repairment:</h3>
+  <div *ngIf="selectedTab === 'ADD'">
+    <h3>Add repairment:</h3>
 
     <table class="table">
       <thead>
@@ -42,17 +50,40 @@
       </thead>
       <tbody>
         <tr>
-          <td><input [(ngModel)]="Customer" class="form-control"></td>
-          <td><input [(ngModel)]="Item" class="form-control"></td>
+          <td>
+            <select [(ngModel)]="selectedCustomerId" class="form-control">
+              <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.lastName }}</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="selectedItemId" class="form-control">
+              <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
+            </select>
+          </td>
           <td><input [(ngModel)]="EstimatedCost" class="form-control"></td>
-          <td><input [(ngModel)]="Employee" class="form-control"></td>
+          <td>
+            <select [(ngModel)]="selectedEmployeeId" class="form-control">
+              <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lastName }}</option>
+            </select>
+          </td>
           <td><input [(ngModel)]="Remarks" class="form-control"></td>
         </tr>
       </tbody>
     </table>
-    <button [disabled]="!Customer || !Item || !EstimatedCost || !Employee" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+    <button
+            [disabled]="!selectedCustomerId || !selectedItemId || !selectedEmployeeId" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">
+    Submit</button>
+  </div>
+
+  <div *ngIf="selectedTab==='REPAIRMENTS'">
+    <app-repairments></app-repairments>
+  </div>
+  
+  <div *ngIf="selectedTab==='CONTACT'">
+    KONTAKT
+  </div>
 
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer *ngIf="selectedTab==='ADD'"></app-footer>
 

@@ -19,10 +19,12 @@ import { ContactComponent } from './contact/contact.component';
 import { CommonModule } from '@angular/common';
 import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
 import { ConfigurationParameters } from './api';
+import { AuthService } from './api/service/authentication-service';
+import { LogoutComponent } from './login/logout.component';
 import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
 
 const configParams: ConfigurationParameters = {
-  basePath: 'https://localhost:7167/'
+  basePath: 'https://localhost:7167'
 };
 
 @NgModule({
@@ -39,6 +41,7 @@ const configParams: ConfigurationParameters = {
     HeaderComponent,
     FooterComponent,
     ContactComponent,
+    LogoutComponent,
     AppUpdateRepairmentComponent
   ],
   imports: [
@@ -51,7 +54,9 @@ const configParams: ConfigurationParameters = {
   ],
 
   providers: [
-    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams) }
+    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams),
+       }, 
+       AuthService
   ],
   bootstrap: [AppComponent]
 })

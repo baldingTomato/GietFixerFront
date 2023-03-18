@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../api/model/user';
+import { AuthService } from '../api/service/authentication-service';
 
 @Component({
   selector: 'app-register',
@@ -6,16 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: any = {
-    username: null,
-    email: null,
-    password: null
-  };
+  email:string = '';
+  password:string = '';
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-
-  constructor() { }
+  authService:AuthService;
+  constructor(authService: AuthService, private router: Router) {
+    this.authService = authService;
+   }
 
   
 
@@ -23,18 +25,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password } = this.form;
+    this.authService.users.push(new User(this.email,this.password,false))
+    this.router.navigate(['/login']);
 
-    // this.authService.register(username, email, password).subscribe({
-    //   next: data => {
-    //     console.log(data);
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //   },
-    //   error: err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isSignUpFailed = true;
-    //   }
-    // });
   }
 }
