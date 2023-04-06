@@ -36,43 +36,7 @@
   <br><br>
 
   <div *ngIf="selectedTab === 'ADD'">
-    <h3>Add repairment:</h3>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Customer</th>
-          <th>Item</th>
-          <th>EstimatedCost</th>
-          <th>Employee</th>
-          <th>Remarks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <select [(ngModel)]="selectedCustomerId" class="form-control">
-              <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.lastName }}</option>
-            </select>
-          </td>
-          <td>
-            <select [(ngModel)]="selectedItemId" class="form-control">
-              <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
-            </select>
-          </td>
-          <td><input [(ngModel)]="EstimatedCost" class="form-control"></td>
-          <td>
-            <select [(ngModel)]="selectedEmployeeId" class="form-control">
-              <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lastName }}</option>
-            </select>
-          </td>
-          <td><input [(ngModel)]="Remarks" class="form-control"></td>
-        </tr>
-      </tbody>
-    </table>
-    <button
-            [disabled]="!selectedCustomerId || !selectedItemId || !selectedEmployeeId" (click)="submit()" class="btn btn-primary" style="max-width: 100px;">
-    Submit</button>
+    <app-repairments-add></app-repairments-add>
   </div>
 
   <div *ngIf="selectedTab==='REPAIRMENTS'">

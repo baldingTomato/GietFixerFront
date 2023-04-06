@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
+
 import { CustomerService } from './api/customer.service';
 import { EmployeeService } from './api/employee.service';
 import { ItemService } from './api/item.service';
@@ -12,7 +13,12 @@ import { RepairmentService } from './api/repairment.service';
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: []
+  providers: [
+    CustomerService,
+    EmployeeService,
+    ItemService,
+    PaymentService,
+    RepairmentService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {
@@ -33,5 +39,3 @@ export class ApiModule {
         }
     }
 }
-export { Configuration };
-

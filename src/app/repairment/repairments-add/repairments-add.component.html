@@ -1,0 +1,19 @@
+    <h3>Add repairment:</h3>
+<div>
+  <form [formGroup]="repairmentForm">
+    <select formControlName="customerId" class="form-control">
+      <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.lastName }}</option>
+    </select>
+
+    <select formControlName="itemId" class="form-control">
+      <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
+    </select>
+
+    <select formControlName="employeeId" class="form-control">
+      <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lastName }}</option>
+    </select>
+
+  <input formControlName="remarks" class="form-control">>
+
+  </form>
+</div>

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RepairmentService } from "../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RepairmentService } from 'src/app/api';
 
 @Component({
   selector: 'app-repairments',
-  templateUrl: './repairment.component.html',
-  styleUrls: ['./repairment.component.css']
+  templateUrl: './repairment-view.component.html',
+  styleUrls: ['./repairment-view.component.css']
 })
 
 export class RepairmentComponent implements OnInit {
@@ -14,10 +14,6 @@ export class RepairmentComponent implements OnInit {
   Oczekiwane: boolean = false;
   Wtrakcie: boolean = false;
   Zakonczone: boolean = false;
-
-  delete = 'assets/delete.png'
-  edit = 'assets/edit.png'
-  check = 'assets/check.png'
   selectedRepairment: any;
   repairmentService : RepairmentService;
 
@@ -31,7 +27,7 @@ constructor(rser : RepairmentService, private http: HttpClient, private router: 
 
 deleteRepairment(repairmentId: string) {
   if (confirm("Are you sure you want to delete this repairment?")) {
-  this.repairmentService.apiRepairmentRepairmentIdDelete(repairmentId).subscribe(
+  this.repairmentService.deleteRepairment(repairmentId).subscribe(
     data => {
       console.log('Repairment deleted successfully');
       // refresh the list of repairments
@@ -50,12 +46,9 @@ editRepairment(selectedRepairment: any) {
   
   
 async ngOnInit(){
-
-
-    this.repairmentService.apiRepairmentGet().subscribe(
+    this.repairmentService.getAllRepairments().subscribe(
       data => {
         this.repairments = data;
-        console.log(this.repairments);
       }
     );
 

@@ -8,11 +8,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { RepairmentComponent } from './repairment/repairment.component';
+import { RepairmentComponent } from './repairment/repairments-view/repairment-view.component';
 import { LogoutComponent } from './login/logout.component';
-import { AuthGuard } from './api/service/authentication-guard';
-import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
+import { AuthGuard } from './auth-service/authentication-guard';
 import { PaymentComponent } from './payment/payment.component';
+import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent ,canActivate: [AuthGuard] },
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'update/:id', component: AppUpdateRepairmentComponent },
+  { path: 'update/:id', component: UpdateRepairmentComponent },
   { path: 'payment', component: PaymentComponent }
 ];
 

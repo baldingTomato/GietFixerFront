@@ -1,16 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { RepairmentService } from "../api";
-import { EmployeeService } from "../api";
+import { EmployeeService, RepairmentService } from "../../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-app-update-repairment',
-  templateUrl: './app-update-repairment.component.html',
-  styleUrls: ['./app-update-repairment.component.css']
+  selector: 'app-update-repairment',
+  templateUrl: './update-repairment.component.html',
+  styleUrls: ['./update-repairment.component.css']
 })
-export class AppUpdateRepairmentComponent {
+export class UpdateRepairmentComponent {
   @Input() repairment: any;
   @Output() updated = new EventEmitter<any>();
 
@@ -31,10 +30,7 @@ export class AppUpdateRepairmentComponent {
   }
 
  async ngOnInit(){
-
-    console.log("dupa");
-
-    this.employeeService.apiEmployeeGet().subscribe(
+    this.employeeService.getAllEmployees().subscribe(
       data => {
         this.employees = data;
         console.log(this.employees);
@@ -42,8 +38,6 @@ export class AppUpdateRepairmentComponent {
         console.log(this.selectedEmp);
       }
     );
-
-    console.log("chuj");
   }
 
 
@@ -51,7 +45,7 @@ export class AppUpdateRepairmentComponent {
 
     this.updated.emit(this.repairment);
     if (this.selectedEmp) {
-      this.repairmentService.apiRepairmentEmployeeIdPut(this.repairment.id, this.selectedEmp.id, this.repairment).subscribe(
+      this.repairmentService.updateRepairment(this.repairment.id, this.selectedEmp.id, this.repairment).subscribe(
         result => {
           console.log('Repairment updated successfully', result);
         },

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { CustomerService, EmployeeService, ItemService, RepairmentService } from "../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ApiModule } from '../api';
 
 @Component({
   selector: 'app-home',
@@ -65,7 +63,7 @@ export class HomeComponent implements OnInit {
       repairments: []
       
     };
-    this.repairmentService.apiRepairmentPost(repairmentRequest)
+    this.repairmentService.addRepairment(repairmentRequest)
       .subscribe(response => {
         // handle the response
         console.log('Repairment added successfully: ', response);
@@ -92,18 +90,18 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.customerService.apiCustomerGet().subscribe(
+    this.customerService.getAllCustomers().subscribe(
       data => {
         this.customers = data;
       }
     );
 
-    this.itemService.apiItemGet().subscribe(
+    this.itemService.getAllItems().subscribe(
       data => {
         this.items = data;
       });
 
-    this.employeeService.apiEmployeeGet().subscribe(
+    this.employeeService.getAllEmployees().subscribe(
       data => {
         this.employees = data;
       });
