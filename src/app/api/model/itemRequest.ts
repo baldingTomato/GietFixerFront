@@ -9,12 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Repairment } from './repairment';
 
 export interface ItemRequest { 
     model?: string;
     serial?: string;
     imei?: string;
     email?: string;
-    repairments?: Array<Repairment>;
 }

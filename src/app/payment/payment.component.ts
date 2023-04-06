@@ -55,6 +55,5 @@ async ngOnInit(){
       }
     );
 
-    console.log(this.payments);
   }
 }

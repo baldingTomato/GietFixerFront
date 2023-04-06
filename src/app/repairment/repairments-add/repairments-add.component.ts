@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer, CustomerService, Employee, EmployeeService, Item, ItemService, Repairment, RepairmentRequest, RepairmentService, RepairmentStatus } from "../../api";
+import { Customer, CustomerService, DeliveryType, Employee, EmployeeService, Item, ItemService, Repairment, RepairmentRequest, RepairmentService, RepairmentStatus } from "../../api";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormBaseComponent } from 'src/app/common/form-base/form-base.component';
+import { EnumHelper } from 'src/app/helpers/enum-helper';
 
 @Component({
     selector: 'app-repairments-add',
@@ -13,6 +14,7 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
     employees: Employee[] ;
     customers: Customer[] ;
     items: Item[];
+    deliveryTypes = EnumHelper.GetAllEnumValues(DeliveryType);
     repairmentForm: FormGroup;
     repairment: Repairment;
 
@@ -29,7 +31,6 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
             estimatedCost: ['', Validators.required],
             remarks: ['', Validators.required],
             employeeId: ['', Validators.required],
-            total: ['',Validators.required],
             deliveryType: ['',Validators.required]
         })
 
@@ -55,6 +56,8 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
 
     addRepairment() {
         const repairment = this.getRepairmentFromForm();
+        console.log(repairment);
+        console.log(this.repairmentForm.getRawValue());
         this.repairmentService.addRepairment(repairment).subscribe(
             result => {
                 console.log('Successfuly added repairment');
@@ -73,7 +76,7 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
         request.remarks = this.repairmentForm.value['remarks'];
         request.estimatedCost = this.repairmentForm.value['estimatedCost'];
         request.repairmentStatus = RepairmentStatus.Accepted;
-        request.total = this.repairmentForm.value['total'];
+        request.total = this.repairmentForm.value['estimatedCost'];
         request.deliveryType = this.repairmentForm.value['deliveryType'];
         return request;
     }

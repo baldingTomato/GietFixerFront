@@ -25,7 +25,6 @@ export class UpdateRepairmentComponent {
     this.employeeService = eser;
     this.activatedRoute.queryParams.subscribe(params => {
       this.repairment = JSON.parse(params['repairment']);
-      console.log(this.repairment);
     });
   }
 
@@ -33,9 +32,7 @@ export class UpdateRepairmentComponent {
     this.employeeService.getAllEmployees().subscribe(
       data => {
         this.employees = data;
-        console.log(this.employees);
         this.selectedEmp = this.employees.find((employee: any) => employee.firstName + " " + employee.lastName === this.repairment.employee);
-        console.log(this.selectedEmp);
       }
     );
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { RepairmentService } from 'src/app/api';
+import { Repairment, RepairmentService } from 'src/app/api';
 
 @Component({
   selector: 'app-repairments',
@@ -11,13 +11,14 @@ import { RepairmentService } from 'src/app/api';
 
 export class RepairmentComponent implements OnInit {
   content?: string;
-  Oczekiwane: boolean = false;
-  Wtrakcie: boolean = false;
-  Zakonczone: boolean = false;
+
+  Awaiting: boolean = false;
+  InProgress: boolean = false;
+  Finished: boolean = false;
+
   selectedRepairment: any;
   repairmentService : RepairmentService;
-
-repairments: any;
+  repairments: Repairment[];
 
 constructor(rser : RepairmentService, private http: HttpClient, private router: Router) {
 
@@ -25,7 +26,10 @@ constructor(rser : RepairmentService, private http: HttpClient, private router: 
 
 }
 
-deleteRepairment(repairmentId: string) {
+deleteRepairment(repairmentId: string | undefined) {
+  if(repairmentId == undefined){
+    return;
+  }
   if (confirm("Are you sure you want to delete this repairment?")) {
   this.repairmentService.deleteRepairment(repairmentId).subscribe(
     data => {
@@ -49,6 +53,7 @@ async ngOnInit(){
     this.repairmentService.getAllRepairments().subscribe(
       data => {
         this.repairments = data;
+        console.log(data);
       }
     );
 
