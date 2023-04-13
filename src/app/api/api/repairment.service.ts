@@ -269,22 +269,17 @@ export class RepairmentService {
      * 
      * 
      * @param repairmentId 
-     * @param employeeId 
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public updateRepairment(repairmentId: string, employeeId: string, body?: RepairmentRequest, observe?: 'body', reportProgress?: boolean): Observable<Repairment>;
-    public updateRepairment(repairmentId: string, employeeId: string, body?: RepairmentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Repairment>>;
-    public updateRepairment(repairmentId: string, employeeId: string, body?: RepairmentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Repairment>>;
-    public updateRepairment(repairmentId: string, employeeId: string, body?: RepairmentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public updateRepairment(repairmentId: string, body?: RepairmentRequest, observe?: 'body', reportProgress?: boolean): Observable<Repairment>;
+    public updateRepairment(repairmentId: string, body?: RepairmentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Repairment>>;
+    public updateRepairment(repairmentId: string, body?: RepairmentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Repairment>>;
+    public updateRepairment(repairmentId: string, body?: RepairmentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (repairmentId === null || repairmentId === undefined) {
             throw new Error('Required parameter repairmentId was null or undefined when calling updateRepairment.');
-        }
-
-        if (employeeId === null || employeeId === undefined) {
-            throw new Error('Required parameter employeeId was null or undefined when calling updateRepairment.');
         }
 
 
@@ -311,7 +306,7 @@ export class RepairmentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Repairment>('put',`${this.basePath}/api/Repairment/${encodeURIComponent(String(employeeId))}`,
+        return this.httpClient.request<Repairment>('put',`${this.basePath}/api/Repairment`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
