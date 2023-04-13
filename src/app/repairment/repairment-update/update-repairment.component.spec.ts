@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppUpdateRepairmentComponent } from './app-update-repairment.component';
+import { AppUpdateRepairmentComponent } from './update-repairment.component';
 
 describe('AppUpdateRepairmentComponent', () => {
   let component: AppUpdateRepairmentComponent;

@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../model/user';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'

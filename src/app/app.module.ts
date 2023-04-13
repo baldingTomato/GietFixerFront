@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -12,17 +11,17 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
-import { RepairmentComponent } from './repairment/repairment.component';
+import { RepairmentComponent } from './repairment/repairments-view/repairment-view.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { CommonModule } from '@angular/common';
-import { ApiModule, Configuration as ApiConfiguration } from './api/api.module';
-import { ConfigurationParameters } from './api';
-import { AuthService } from './api/service/authentication-service';
+import { ApiModule, Configuration, ConfigurationParameters } from './api';
+import { AuthService } from './auth-service/authentication-service';
 import { LogoutComponent } from './login/logout.component';
-import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
-import { NewhomeComponent } from './newhome/newhome.component';
+import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
 
 const configParams: ConfigurationParameters = {
   basePath: 'https://localhost:7167'
@@ -43,8 +42,8 @@ const configParams: ConfigurationParameters = {
     FooterComponent,
     ContactComponent,
     LogoutComponent,
-    AppUpdateRepairmentComponent,
-    NewhomeComponent
+    UpdateRepairmentComponent,
+    RepairmentsAddComponent
   ],
   imports: [
     BrowserModule,
@@ -53,10 +52,12 @@ const configParams: ConfigurationParameters = {
     HttpClientModule,
     CommonModule,
     ApiModule,
+    NgxDatatableModule,
+    ReactiveFormsModule
   ],
 
   providers: [
-    { provide: ApiConfiguration, useValue: new ApiConfiguration(configParams),
+    { provide: Configuration, useValue: new Configuration(configParams),
        }, 
        AuthService
   ],

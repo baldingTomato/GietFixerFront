@@ -1,0 +1,39 @@
+<div class="container">
+<div class="card">
+  <div class="row">
+    <input type="checkbox" [(ngModel)]="Awaiting" style="margin-left: 15px;"> Awaiting
+    <input type="checkbox" [(ngModel)]="InProgress" style="margin-left: 15px;"> In Progress
+    <input type="checkbox" [(ngModel)]="Finished" style="margin-left: 15px;"> Finished
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id naprawy</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Item</th>
+        <th>Delivery Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let rep of repairments">
+        <tr>
+          <td>{{rep.id}}</td>
+          <td>{{rep.customer}}</td>
+          <td>{{rep.total}}</td>
+          <td>{{rep.status}}</td>
+          <td>{{rep.deliveryType}}</td>
+          <td>{{rep.item}}</td>
+          <td>
+            <button (click)="deleteRepairment(rep.id)"><img src="assets/delete.png" style="height: 20px"></button>
+            <button (click)="editRepairment(rep)"><img src="assets/edit.png" style="height: 20px"></button>
+          </td>
+        </tr>
+       
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+</div> 
