@@ -10,6 +10,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { RepairmentComponent } from './repairment/repairment.component';
 import { LogoutComponent } from './login/logout.component';
+import { NewhomeComponent } from './newhome/newhome.component';
 import { AuthGuard } from './api/service/authentication-guard';
 import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },   
   { path: 'profile', component: ProfileComponent , canActivate: [AuthGuard]},
   { path: 'user', component: BoardUserComponent , canActivate: [AuthGuard]},
+  { path: 'newhome', component: NewhomeComponent , canActivate: [AuthGuard]},
   { path: 'mod', component: BoardModeratorComponent , canActivate: [AuthGuard]},
   { path: 'admin', component: BoardAdminComponent , canActivate: [AuthGuard]},
   { path: 'repairment', component: RepairmentComponent, canActivate: [AuthGuard] },

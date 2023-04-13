@@ -22,6 +22,7 @@ import { ConfigurationParameters } from './api';
 import { AuthService } from './api/service/authentication-service';
 import { LogoutComponent } from './login/logout.component';
 import { AppUpdateRepairmentComponent } from './app-update-repairment/app-update-repairment.component';
+import { NewhomeComponent } from './newhome/newhome.component';
 
 const configParams: ConfigurationParameters = {
   basePath: 'https://localhost:7167'
@@ -42,7 +43,8 @@ const configParams: ConfigurationParameters = {
     FooterComponent,
     ContactComponent,
     LogoutComponent,
-    AppUpdateRepairmentComponent
+    AppUpdateRepairmentComponent,
+    NewhomeComponent
   ],
   imports: [
     BrowserModule,
