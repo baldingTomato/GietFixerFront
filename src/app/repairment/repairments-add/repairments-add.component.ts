@@ -36,7 +36,6 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
 
         this.employeesService.getAllEmployees().subscribe(employees => {
             this.employees = employees;
-            console.log(this.employees);
         });
 
         this.itemsService.getAllItems().subscribe(items => {
@@ -56,8 +55,6 @@ export class RepairmentsAddComponent extends FormBaseComponent implements OnInit
 
     addRepairment() {
         const repairment = this.getRepairmentFromForm();
-        console.log(repairment);
-        console.log(this.repairmentForm.getRawValue());
         this.repairmentService.addRepairment(repairment).subscribe(
             result => {
                 console.log('Successfuly added repairment');

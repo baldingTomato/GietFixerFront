@@ -14,5 +14,4 @@ export interface ItemRequest {
     model?: string;
     serial?: string;
     imei?: string;
-    email?: string;
 }

@@ -23,7 +23,7 @@ export interface Repairment {
     estimatedCost?: number;
     payments?: Array<Payment>;
     total?: number;
-    status?: RepairmentStatus;
+    repairmentStatus?: RepairmentStatus;
     remarks?: string;
     deliveryType?: DeliveryType;
     employee?: Employee;

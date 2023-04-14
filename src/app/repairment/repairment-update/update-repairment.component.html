@@ -4,34 +4,42 @@
         <div class="col-md-6">
             <div class="container">
                 <div class="card">
-                    <form>
-                        <div class="form-group">
-                            <label for="id">Id naprawy:</label>
-                            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" 
-                            type="text" class="form-control" id="id" [(ngModel)]="repairment.id" name="id">
+                    <form [formGroup]="repairmentForm">
+                        <label class="control-label" for="customer">Customer</label>
+                        <select formControlName="customerId" class="form-control" id="customer">
+                          <option *ngFor="let customer of customers" [value]="customer.id" [selected]="customer.id==repairment.customerId">{{ customer.lastName }}</option>
+                        </select>
+                    
+                        <label class="control-label" for="item">Item</label>
+                        <select formControlName="itemId" class="form-control" id="item">
+                          <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
+                        </select>
+                    
+                        <label class="control-label" for="item">Employee</label>
+                        <select formControlName="employeeId" class="form-control" id="item">
+                          <option *ngFor="let employee of employees" [value]="employee.id" [selected]="employee.id==repairment.employeeId">{{ employee.lastName }}</option>
+                        </select>
+                        
+                        <label class="control-label" for="deliveryType">Delivery type</label>
+                        <select formControlName="deliveryType" class="form-control" id="deliveryType">
+                          <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
+                        </select>
+
+                        <label class="control-label" for="deliveryType">Status</label>
+                        <select formControlName="repairmentStatus" class="form-control" id="repairmentStatus">
+                          <option *ngFor="let status of repairmentStatus" [value]="status">{{ repairmentStatus }}</option>
+                        </select>
+                    
+                        <label class="control-label" for="estimatedCost">Estimated Cost</label>
+                        <input formControlName="estimatedCost" class="form-control" type="number" id="estimatedCost">
+                    
+                        <label>Remarks</label>
+                        <input formControlName="remarks" class="form-control">
+                    
+                        <div class="button-container">
+                          <button class="btn btn-secondary" type="submit" (click)="onUpdate()">Update</button>
                         </div>
-                        <div class="form-group">
-                            <label for="customer">Customer:</label>
-                            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" 
-                            type="text" class="form-control" id="customer" [(ngModel)]="repairment.customer" name="customer">
-                        </div>
-                        <div class="form-group">
-                            <label for="total">Total:</label>
-                            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" 
-                            type="text" class="form-control" id="total" [(ngModel)]="repairment.total" name="total">
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Status:</label>
-                            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" 
-                            type="text" class="form-control" id="status" [(ngModel)]="repairment.status" name="status">
-                        </div>
-                        <div class="form-group">
-                            <label for="remarks">Remarks:</label>
-                            <input style="background-color: transparent; border-color: #007BCE; border-width: 2px;" 
-                            type="text" class="form-control" id="remarks" [(ngModel)]="repairment.remarks" name="remarks">
-                        </div>
-                        <button type="button" style="background-color: #007BCE;" class="btn btn-primary" (click)="onUpdate()">Update</button>
-                    </form>
+                      </form>
                 </div>
             </div>
         <div class="col-md-3"></div>
