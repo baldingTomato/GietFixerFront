@@ -19,6 +19,20 @@ export class HomeComponent implements OnInit {
   static readonly AddTab = "ADD";
   static readonly RepairmentsTab = "REPAIRMENTS";
   static readonly Contact = "CONTACT";
+  static readonly ItemTab = "ITEM";
+  static readonly CustomerTab = "CUSTOMER";
+  static readonly EmployeeTab = "EMPLOYEE";
+
+  public showMenu = true;
+
+
+  public handleTabSelection(tab: string) {
+    // code to handle tab selection
+    this.showMenu = false;
+  }
+
+  A = 'assets/A.png'
+  B = 'assets/B.png'
 
   selectedTab = HomeComponent.MainTab;
   names = [
@@ -31,7 +45,13 @@ export class HomeComponent implements OnInit {
 
   setTab(tab: string) {
     this.selectedTab = tab;
+    if (tab === 'MAIN') {
+      this.showMenu = true;
+    } else {
+      this.showMenu = false;
+    }
   }
+
 
   selectedCustomerId: any;
   selectedCustomer: any;

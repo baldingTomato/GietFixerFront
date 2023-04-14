@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { NewhomeComponent } from './newhome/newhome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
@@ -23,6 +22,10 @@ import { LogoutComponent } from './login/logout.component';
 import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
 //import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ItemComponent } from './item/item.component';
+
 
 const configParams: ConfigurationParameters = {
   basePath: 'https://localhost:7167'
@@ -43,9 +46,11 @@ const configParams: ConfigurationParameters = {
     FooterComponent,
     ContactComponent,
     LogoutComponent,
-    NewhomeComponent,
     UpdateRepairmentComponent,
     RepairmentsAddComponent,
+    EmployeeComponent,
+    CustomerComponent,
+    ItemComponent
     
   ],
   imports: [
