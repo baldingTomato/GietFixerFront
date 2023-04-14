@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { NewhomeComponent } from './newhome/newhome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
@@ -20,7 +21,7 @@ import { ApiModule, Configuration, ConfigurationParameters } from './api';
 import { AuthService } from './auth-service/authentication-service';
 import { LogoutComponent } from './login/logout.component';
 import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+//import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
 
 const configParams: ConfigurationParameters = {
@@ -42,8 +43,10 @@ const configParams: ConfigurationParameters = {
     FooterComponent,
     ContactComponent,
     LogoutComponent,
+    NewhomeComponent,
     UpdateRepairmentComponent,
-    RepairmentsAddComponent
+    RepairmentsAddComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ const configParams: ConfigurationParameters = {
     HttpClientModule,
     CommonModule,
     ApiModule,
-    NgxDatatableModule,
+   // NgxDatatableModule,
     ReactiveFormsModule
   ],
 

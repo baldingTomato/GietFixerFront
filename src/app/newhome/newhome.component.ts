@@ -4,23 +4,24 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-newhome',
+  templateUrl: './newhome.component.html',
+  styleUrls: ['./newhome.component.css']
 })
-export class HomeComponent implements OnInit {
+export class NewhomeComponent implements OnInit {
+  A = 'assets/A.png'
+  B = 'assets/B.png'
   content?: string;
   Customer: string = '';
   Item: string = '';
   EstimatedCost: number = 0.0;
   Employee: string = '';
   Remarks: string = '';
-  static readonly MainTab = "MAIN";
   static readonly AddTab = "ADD";
   static readonly RepairmentsTab = "REPAIRMENTS";
   static readonly Contact = "CONTACT";
 
-  selectedTab = HomeComponent.MainTab;
+  selectedTab = NewhomeComponent.AddTab;
   names = [
     { id: 1, name: 'Tomasz' },
     { id: 2, name: 'Piotr' },
