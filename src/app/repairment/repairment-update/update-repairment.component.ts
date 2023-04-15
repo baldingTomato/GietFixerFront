@@ -91,9 +91,12 @@ export class UpdateRepairmentComponent {
     const updatedRepairment = this.getRepairmentFromForm();
 
     this.updated.emit(this.repairment);
+    //console.log(updatedRepairment);
+    //console.log(this.repairment);
       this.repairmentService.updateRepairment(this.repairment.id, updatedRepairment).subscribe(
         result => {
           console.log('Repairment updated successfully', result);
+          this.router.navigate(['/home'], { queryParams: { selectedTab: 'REPAIRMENTS' } });
         },
         error => {
           console.error('Error updating repairment', error);
