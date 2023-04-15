@@ -17,13 +17,13 @@ import { Payment } from './payment';
 import { RepairmentStatus } from './repairmentStatus';
 
 export interface Repairment { 
-    id?: string;
+    id: string;
     creationTime?: Date;
     completionTime?: Date;
     estimatedCost?: number;
     payments?: Array<Payment>;
     total?: number;
-    repairmentStatus?: RepairmentStatus;
+    status?: RepairmentStatus;
     remarks?: string;
     deliveryType?: DeliveryType;
     employee?: Employee;

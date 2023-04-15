@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Repairment, RepairmentService } from 'src/app/api';
+import { Repairment, RepairmentService, Customer } from 'src/app/api';
 
 @Component({
   selector: 'app-repairments',
@@ -15,8 +15,8 @@ export class RepairmentComponent implements OnInit {
   Awaiting: boolean = false;
   InProgress: boolean = false;
   Finished: boolean = false;
-
-  selectedRepairment: any;
+  
+  selectedRepairment: Repairment;
   repairmentService : RepairmentService;
   repairments: Repairment[];
 
@@ -44,7 +44,8 @@ deleteRepairment(repairmentId: string | undefined) {
   }
 }
 
-editRepairment(selectedRepairment: any) {
+editRepairment(selectedRepairment: Repairment) {
+  console.log(selectedRepairment);
   this.router.navigate(['/update', selectedRepairment.id], { queryParams: { repairment: JSON.stringify(selectedRepairment) } });
 }
   

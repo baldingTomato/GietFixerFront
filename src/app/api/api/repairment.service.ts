@@ -306,7 +306,7 @@ export class RepairmentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Repairment>('put',`${this.basePath}/api/Repairment`,
+        return this.httpClient.request<Repairment>('put',`${this.basePath}/api/Repairment/${encodeURIComponent(String(repairmentId))}`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

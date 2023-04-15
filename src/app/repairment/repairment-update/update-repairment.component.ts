@@ -15,6 +15,8 @@ export class UpdateRepairmentComponent {
   @Input() repairment: Repairment;
   @Output() updated = new EventEmitter<any>();
 
+  repairmentReal: Repairment;
+
   repairmentForm: FormGroup;
 
   deliveryTypes = EnumHelper.GetAllEnumValues(DeliveryType);
@@ -24,6 +26,7 @@ export class UpdateRepairmentComponent {
   items: Item[];
   customers: Customer[];
   selectedEmp: any;
+  selectedCus: Customer;
 
   repairmentService: RepairmentService;
   employeeService: EmployeeService;
@@ -44,6 +47,8 @@ export class UpdateRepairmentComponent {
   }
 
   async ngOnInit() {
+
+    console.log(this.repairmentStatus);
     this.employeeService.getAllEmployees().subscribe(
       data => {
         this.employees = data;
@@ -54,7 +59,7 @@ export class UpdateRepairmentComponent {
     this.customerService.getAllCustomers().subscribe(
       data => {
         this.customers = data;
-        //this.selectedCus = this.employees.find((employee: any) => employee.firstName + " " + employee.lastName === this.repairment.employee);
+        this.selectedCus = this.customers.find((Customer: any) => Customer.firstName + " " + Customer.lastName === this.repairment.customer)!;
       }
     );
 
@@ -65,16 +70,19 @@ export class UpdateRepairmentComponent {
       }
     );
 
+    console.log(this.repairment);
+
     this.repairmentForm = this.formBuilder.group({
-      customerId: ['', Validators.required],
-      itemId: ['', Validators.required],
-      estimatedCost: ['', Validators.required],
-      remarks: ['', Validators.required],
-      employeeId: ['', Validators.required],
-      deliveryType: ['', Validators.required],
-      total: ['', Validators.required],
-      repairmentStatus: ['', Validators.required]
+      customerId: [this.repairment.customer!.id, Validators.required],
+      itemId: [this.repairment.item!.id, Validators.required],
+      estimatedCost: [this.repairment.estimatedCost, Validators.required],
+      remarks: [this.repairment.remarks, Validators.required],
+      employeeId: [this.repairment.employee!.id, Validators.required],
+      deliveryType: [this.repairment.deliveryType, Validators.required],
+      total: [this.repairment.total, Validators.required],
+      repairmentStatus: [this.repairment.status, Validators.required]
     });
+    
   }
 
   onUpdate() {
@@ -82,8 +90,6 @@ export class UpdateRepairmentComponent {
     const updatedRepairment = this.getRepairmentFromForm();
 
     this.updated.emit(this.repairment);
-    console.log(updatedRepairment);
-    console.log(this.repairment);
       this.repairmentService.updateRepairment(this.repairment.id, updatedRepairment).subscribe(
         result => {
           console.log('Repairment updated successfully', result);

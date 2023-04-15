@@ -16,7 +16,7 @@
                         </select>
                     
                         <label class="control-label" for="item">Employee</label>
-                        <select formControlName="employeeId" class="form-control" id="item">
+                        <select formControlName="employeeId" class="form-control" id="Employee">
                           <option *ngFor="let employee of employees" [value]="employee.id" [selected]="employee.id==repairment.employeeId">{{ employee.lastName }}</option>
                         </select>
                         
@@ -25,7 +25,7 @@
                           <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
                         </select>
 
-                        <label class="control-label" for="deliveryType">Status</label>
+                        <label class="control-label" for="repairmentStatus">Status</label>
                         <select formControlName="repairmentStatus" class="form-control" id="repairmentStatus">
                           <option *ngFor="let status of repairmentStatus" [value]="status">{{ repairmentStatus }}</option>
                         </select>
