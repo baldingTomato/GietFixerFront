@@ -24,7 +24,7 @@
           <td>{{rep.customer!.firstName + " " +  rep.customer!.lastName}}</td>
           <td>{{rep.total}}</td>
           <td>{{rep.status}}</td>
-          <td>{{rep.item}}</td>
+          <td>{{rep.item!.model + ", imei: " + rep.item!.imei}}</td>
           <td>{{rep.deliveryType}}</td>
           <td>
             <button (click)="deleteRepairment(rep.id)"><img src="assets/delete.png" style="height: 20px"></button>

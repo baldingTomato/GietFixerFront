@@ -70,7 +70,8 @@ export class UpdateRepairmentComponent {
       }
     );
 
-    console.log(this.repairment);
+    console.log(this.repairment.remarks);
+    console.log(this.repairment.estimatedCost);
 
     this.repairmentForm = this.formBuilder.group({
       customerId: [this.repairment.customer!.id, Validators.required],
