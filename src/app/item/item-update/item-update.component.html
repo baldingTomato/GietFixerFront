@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="container">
+                <div class="card">
+                    <form [formGroup]="itemForm">
+                        <label class="control-label" for="item">Model</label>
+                        <input formControlName="model" class="form-control" id="model">
+                    
+                        <label class="control-label" for="item">Serial</label>
+                        <input formControlName="serial" class="form-control" id="serial">
+                    
+                        <label class="control-label" for="item">Employee</label>
+                        <input formControlName="imei" class="form-control" id="imei">
+                    
+                        <div class="button-container">
+                          <button class="btn btn-secondary" type="submit" (click)="onUpdate()">Update</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        <div class="col-md-3"></div>
+    </div>
+  </div>

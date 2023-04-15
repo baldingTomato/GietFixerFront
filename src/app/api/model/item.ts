@@ -13,7 +13,7 @@ import { Repairment } from './repairment';
 
 export interface Item { 
     repairments?: Array<Repairment>;
-    id?: string;
+    id: string;
     model?: string;
     serial?: string;
     imei?: string;
