@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService, EmployeeService, ItemService, RepairmentService } from "../api";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -101,7 +102,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  constructor(cser: CustomerService, iser: ItemService, eser: EmployeeService, rser: RepairmentService, private http: HttpClient, private router: Router) {
+  constructor(cser: CustomerService, iser: ItemService, eser: EmployeeService, rser: RepairmentService, private http: HttpClient, private router: Router, private activatedRouter: ActivatedRoute) {
 
     this.customerService = cser;
     this.itemService = iser;
@@ -127,8 +128,21 @@ export class HomeComponent implements OnInit {
         this.employees = data;
       });
 
-
-
+    const selectedTab = this.activatedRouter.snapshot.queryParamMap.get('selectedTab');
+    if (selectedTab === 'REPAIRMENTS') {
+      this.setTab(selectedTab);
+      //this.selectedTab = HomeComponent.RepairmentsTab;
+    } else {
+      this.setTab('MAIN');
+      //this.selectedTab = HomeComponent.MainTab;
+    }
+  
+    //clearing 'queryParamMap' so website won't store selectedTab in address bar
+    this.router.navigate([], {
+      relativeTo: this.activatedRouter,
+      queryParams: { selectedTab: null },
+      queryParamsHandling: 'merge'
+    });
 
 
     // this.userService.getPublicContent().subscribe({
