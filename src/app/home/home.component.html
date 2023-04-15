@@ -74,8 +74,8 @@
           </div>
         </div>
       </button>
-      <button class="col button">
-        <div class="image-title-container">
+      <button class="col button" [ngClass]="{'nav-item active': selectedTab === 'ADD-ITEM'}">
+        <div class="image-title-container nav-link" (click)="setTab('ADD-ITEM')">
           <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
           <div class="title-container">
             <div class="title-text">Item</div>
@@ -96,7 +96,7 @@
   </div>
   
   <div *ngIf="selectedTab === 'CUSTOMER'">
-    <app-customer></app-customer>
+    <app-customers></app-customers>
   </div>
   
   <div *ngIf="selectedTab === 'EMPLOYEE'">
@@ -104,7 +104,11 @@
   </div>
 
   <div *ngIf="selectedTab === 'ITEM'">
-    <app-item></app-item>
+    <app-items></app-items>
+  </div>
+
+  <div *ngIf="selectedTab === 'ADD-ITEM'">
+    <app-items-add></app-items-add>
   </div>
 
   <div *ngIf="selectedTab === 'ADD'">

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let cus of customers">
+            <tr>
+              <td>{{cus.id}}</td>
+              <td>{{cus.lastName}}</td>
+              <td>{{cus.address}}</td>
+              <td>{{cus.email}}</td>
+              <td>{{cus.phoneNumber}}</td>
+              <td>
+                <button (click)="deleteCustomer(cus.id)"><img src="assets/delete.png" style="height: 20px"></button>
+                <button (click)="editCustomer(cus)"><img src="assets/edit.png" style="height: 20px"></button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    </div> 
+    

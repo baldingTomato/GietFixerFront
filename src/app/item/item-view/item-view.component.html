@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Serial</th>
+            <th>Imei</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let ite of items">
+            <tr>
+              <td>{{ite.id}}</td>
+              <td>{{ite.model}}</td>
+              <td>{{ite.serial}}</td>
+              <td>{{ite.imei}}</td>
+              <td>
+                <button (click)="deleteItem(ite.id)"><img src="assets/delete.png" style="height: 20px"></button>
+                <button (click)="updateItem(ite)"><img src="assets/edit.png" style="height: 20px"></button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    </div> 

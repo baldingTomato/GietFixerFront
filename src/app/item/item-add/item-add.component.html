@@ -1,0 +1,19 @@
+<h3>Add item:</h3>
+<div>
+  <form [formGroup]="itemForm">
+    
+    <label>Model</label>
+    <input formControlName="model" class="form-control">
+
+    <label>Serial</label>
+    <input formControlName="serial" class="form-control">
+
+    <label>Imei</label>
+    <input formControlName="imei" class="form-control">
+
+    <div class="button-container">
+      <button class="btn btn-secondary" type="submit" (click)="addItem()">Submit</button>
+    </div>
+
+  </form>
+</div>
