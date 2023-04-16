@@ -20,6 +20,7 @@ import { ApiModule, Configuration, ConfigurationParameters } from './api';
 import { AuthService } from './auth-service/authentication-service';
 import { LogoutComponent } from './login/logout.component';
 import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
+import { UpdateItemComponent } from './item/item-update/item-update.component';
 //import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -52,7 +53,8 @@ const configParams: ConfigurationParameters = {
     EmployeeComponent,
     CustomerComponent,
     ItemComponent,
-    ItemAddComponent
+    ItemAddComponent,
+    UpdateItemComponent
     
   ],
   imports: [

@@ -132,6 +132,8 @@ export class HomeComponent implements OnInit {
     if (selectedTab === 'REPAIRMENTS') {
       this.setTab(selectedTab);
       //this.selectedTab = HomeComponent.RepairmentsTab;
+    } else if (selectedTab === 'ITEM') {
+      this.setTab(selectedTab);
     } else {
       this.setTab('MAIN');
       //this.selectedTab = HomeComponent.MainTab;

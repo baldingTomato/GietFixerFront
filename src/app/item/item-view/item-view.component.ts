@@ -41,7 +41,7 @@ deleteItem(itemId: string | undefined) {
 
 updateItem(selectedItem: Item) {
   console.log(selectedItem);
-  this.router.navigate(['/update', selectedItem.id], { queryParams: { item: JSON.stringify(selectedItem) } });
+  this.router.navigate(['/updateItem', selectedItem.id], { queryParams: { item: JSON.stringify(selectedItem) } });
 }
   
   

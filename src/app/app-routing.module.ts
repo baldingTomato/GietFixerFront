@@ -15,6 +15,7 @@ import { LogoutComponent } from './login/logout.component';
 import { AuthGuard } from './auth-service/authentication-guard';
 import { PaymentComponent } from './payment/payment.component';
 import { UpdateRepairmentComponent } from './repairment/repairment-update/update-repairment.component';
+import { UpdateItemComponent } from './item/item-update/item-update.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent ,canActivate: [AuthGuard] },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'update/:id', component: UpdateRepairmentComponent },
+  { path: 'updateItem/:id', component: UpdateItemComponent },
   { path: 'payment', component: PaymentComponent }
 ];
 
