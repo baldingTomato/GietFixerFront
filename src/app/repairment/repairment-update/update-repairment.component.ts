@@ -15,8 +15,6 @@ export class UpdateRepairmentComponent {
   @Input() repairment: Repairment;
   @Output() updated = new EventEmitter<any>();
 
-  repairmentReal: Repairment;
-
   repairmentForm: FormGroup;
 
   deliveryTypes = EnumHelper.GetAllEnumValues(DeliveryType);
