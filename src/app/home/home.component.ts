@@ -129,13 +129,10 @@ export class HomeComponent implements OnInit {
       });
 
     const selectedTab = this.activatedRouter.snapshot.queryParamMap.get('selectedTab');
-    if (selectedTab === 'REPAIRMENTS') {
-      this.setTab(selectedTab);
-      //this.selectedTab = HomeComponent.RepairmentsTab;
-    } else if (selectedTab === 'ITEM') {
-      this.setTab(selectedTab);
-    } else {
+    if (selectedTab === 'MAIN' || selectedTab === null) {
       this.setTab('MAIN');
+    }  else {
+      this.setTab(selectedTab as string);
       //this.selectedTab = HomeComponent.MainTab;
     }
   

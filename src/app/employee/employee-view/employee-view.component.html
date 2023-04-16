@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Admin</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let emp of employees">
+            <tr>
+              <td>{{emp.id}}</td>
+              <td>{{emp.firstName + " " + emp.lastName}}</td>
+              <td>{{emp.createdDate}}</td>
+              <td>{{emp.isAdmin}}</td>
+              <td>{{emp.email}}</td>
+              <td>
+                <button (click)="deleteEmployee(emp.id)"><img src="assets/delete.png" style="height: 20px"></button>
+                <button (click)="updateEmployee(emp)"><img src="assets/edit.png" style="height: 20px"></button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    </div>

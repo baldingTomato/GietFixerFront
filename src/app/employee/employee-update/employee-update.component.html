@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="container">
+                <div class="card">
+                    <form [formGroup]="employeeForm">
+                        <label class="control-label" for="employee">First Name</label>
+                        <input formControlName="firstName" class="form-control" id="lastName">
+                    
+                        <label class="control-label" for="employee">Last Name</label>
+                        <input formControlName="lastName" class="form-control" id="firstName">
+
+                        <label class="control-label" for="employee">Admin</label>
+                        <select formControlName="isAdmin" class="form-control" id="isAdmin">
+                          <option value="true">True</option>
+                          <option value="false">False</option>
+                        </select>
+                    
+                        <div class="button-container">
+                          <button class="btn btn-secondary" type="submit" (click)="onUpdate()">Update</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        <div class="col-md-3"></div>
+    </div>
+  </div>

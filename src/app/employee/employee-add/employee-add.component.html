@@ -1,0 +1,28 @@
+<h3>Add employee:</h3>
+<div>
+  <form [formGroup]="employeeForm">
+    
+    <label>First name</label>
+    <input formControlName="firstName" class="form-control">
+
+    <label>Last name</label>
+    <input formControlName="lastName" class="form-control">
+
+    <label>Admin</label>
+    <select formControlName="isAdmin" class="form-control">
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select>
+
+    <label>Email</label>
+    <input formControlName="email" class="form-control" type="email">
+
+    <label>Password</label>
+    <input formControlName="password" class="form-control">
+
+    <div class="button-container">
+      <button class="btn btn-secondary" type="submit" (click)="addEmployee()">Submit</button>
+    </div>
+
+  </form>
+</div>

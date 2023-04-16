@@ -84,7 +84,7 @@
         </div>
       </button>
       <button class="col button">
-        <div class="image-title-container">
+        <div class="image-title-container nav-link" (click)="setTab('ADD-EMPLOYEE')">
           <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
           <div class="title-container">
             <div class="title-text">Employee</div>
@@ -100,7 +100,11 @@
   </div>
   
   <div *ngIf="selectedTab === 'EMPLOYEE'">
-    <app-employee></app-employee>
+    <app-employees></app-employees>
+  </div>
+
+  <div *ngIf="selectedTab === 'ADD-EMPLOYEE'">
+    <app-employees-add></app-employees-add>
   </div>
 
   <div *ngIf="selectedTab === 'ITEM'">

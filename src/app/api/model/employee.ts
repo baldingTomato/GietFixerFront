@@ -12,7 +12,7 @@
 import { Repairment } from './repairment';
 
 export interface Employee { 
-    id?: string;
+    id: string;
     firstName?: string;
     lastName?: string;
     createdDate?: Date;

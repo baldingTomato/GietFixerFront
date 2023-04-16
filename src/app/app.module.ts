@@ -23,7 +23,9 @@ import { UpdateRepairmentComponent } from './repairment/repairment-update/update
 import { UpdateItemComponent } from './item/item-update/item-update.component';
 //import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeComponent } from './employee/employee-view/employee-view.component';
+import { UpdateEmployeeComponent } from './employee/employee-update/employee-update.component';
+import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
 import { CustomerComponent } from './customer/customer-view/customer-view.component';
 import { ItemComponent } from './item/item-view/item-view.component';
 import { ItemAddComponent } from './item/item-add/item-add.component';
@@ -51,10 +53,12 @@ const configParams: ConfigurationParameters = {
     UpdateRepairmentComponent,
     RepairmentsAddComponent,
     EmployeeComponent,
+    EmployeeAddComponent,
     CustomerComponent,
     ItemComponent,
     ItemAddComponent,
-    UpdateItemComponent
+    UpdateItemComponent,
+    UpdateEmployeeComponent
     
   ],
   imports: [
