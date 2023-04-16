@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <button class="col button">
-          <div class="image-title-container">
+          <div class="image-title-container nav-link" (click)="setTab('CUSTOMER')">
             <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
             <div class="title-container">
               <div class="title-text">Customer</div>
@@ -75,21 +75,21 @@
           </div>
         </button>
         <button class="col button">
-          <div class="image-title-container">
+          <div class="image-title-container nav-link" (click)="setTab('ADD-ITEM')">
             <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
             <div class="title-container">
               <div class="title-text">Item</div>
               <div class="title-description">Add item</div>
             </div>
           </div>
-        </div>
-      </button>
-      <button class="col button">
-        <div class="image-title-container nav-link" (click)="setTab('ADD-EMPLOYEE')">
-          <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
-          <div class="title-container">
-            <div class="title-text">Employee</div>
-            <div class="title-description">Add employee</div>
+        </button>
+        <button class="col button">
+          <div class="image-title-container nav-link" (click)="setTab('ADD-EMPLOYEE')">
+            <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
+            <div class="title-container">
+              <div class="title-text">Employee</div>
+              <div class="title-description">Add employee</div>
+            </div>
           </div>
         </button>
       </div>
