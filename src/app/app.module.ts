@@ -25,8 +25,10 @@ import { UpdateItemComponent } from './item/item-update/item-update.component';
 import { RepairmentsAddComponent } from './repairment/repairments-add/repairments-add.component';
 import { EmployeeComponent } from './employee/employee-view/employee-view.component';
 import { UpdateEmployeeComponent } from './employee/employee-update/employee-update.component';
+import { UpdateCustomerComponent } from './customer/customer-update/customer-update.component';
 import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
 import { CustomerComponent } from './customer/customer-view/customer-view.component';
+import { CustomersAddComponent } from './customer/customer-add/customer-add.component';
 import { ItemComponent } from './item/item-view/item-view.component';
 import { ItemAddComponent } from './item/item-add/item-add.component';
 
@@ -55,10 +57,12 @@ const configParams: ConfigurationParameters = {
     EmployeeComponent,
     EmployeeAddComponent,
     CustomerComponent,
+    CustomersAddComponent,
     ItemComponent,
     ItemAddComponent,
     UpdateItemComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    UpdateCustomerComponent
     
   ],
   imports: [

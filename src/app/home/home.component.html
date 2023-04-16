@@ -22,9 +22,6 @@
           <li [ngClass]="{'nav-item active': selectedTab === 'CONTACT'}">
             <a class="nav-link" (click)="setTab('CONTACT')">Contact</a>
           </li>
-          <li [ngClass]="{'nav-item active': selectedTab === 'PAYMENT'}">
-            <a class="nav-link" (click)="setTab('PAYMENT')">Payment</a>
-          </li>
   
         </ul>
       </div>
@@ -66,7 +63,7 @@
       </div>
       <div class="row">
         <button class="col button">
-          <div class="image-title-container nav-link" (click)="setTab('CUSTOMER')">
+          <div class="image-title-container nav-link" (click)="setTab('ADD-CUSTOMER')">
             <img [src]="B" style="height: 40px; width: 40px;" class="mr-3">
             <div class="title-container">
               <div class="title-text">Customer</div>
@@ -97,6 +94,10 @@
   
   <div *ngIf="selectedTab === 'CUSTOMER'">
     <app-customers></app-customers>
+  </div>
+
+  <div *ngIf="selectedTab === 'ADD-CUSTOMER'">
+    <app-customers-add></app-customers-add>
   </div>
   
   <div *ngIf="selectedTab === 'EMPLOYEE'">

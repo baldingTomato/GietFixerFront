@@ -1,36 +1,39 @@
-<h3>Add repairment:</h3>
+<h3>Add customer:</h3>
 <div>
-  <form [formGroup]="repairmentForm">
-    <label class="control-label" for="customer">Customer</label>
-    <select formControlName="customerId" class="form-control" id="customer">
-      <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.lastName }}</option>
-    </select>
+  <form [formGroup]="customerForm">
 
-    <label class="control-label" for="item">Item</label>
+    <label>First name</label>
+    <input formControlName="firstName" class="form-control">
 
-    <select formControlName="itemId" class="form-control" id="item">
-      <option *ngFor="let item of items" [value]="item.id">{{ item.imei }}</option>
-    </select>
+    <label>Last name</label>
+    <input formControlName="lastName" class="form-control">
 
-    <label class="control-label" for="item">Employee</label>
-    <select formControlName="employeeId" class="form-control" id="item">
-      <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lastName }}</option>
-    </select>
+    <label>Country</label>
+    <input formControlName="country" class="form-control">
 
-    
-    <label class="control-label" for="deliveryType">Delivery type</label>
-    <select formControlName="deliveryType" class="form-control" id="deliveryType">
-      <option *ngFor="let type of deliveryTypes" [value]="type">{{ type }}</option>
-    </select>
+    <label>Region</label>
+    <input formControlName="region" class="form-control">
 
-    <label class="control-label" for="estimatedCost">Estimated Cost</label>
-    <input formControlName="estimatedCost" class="form-control" type="number" id="estimatedCost">
+    <label>City</label>
+    <input formControlName="city" class="form-control">
 
-    <label>Remarks</label>
-    <input formControlName="remarks" class="form-control">
+    <label>Postal code</label>
+    <input formControlName="postalCode" class="form-control">
+
+    <label>Street</label>
+    <input formControlName="street" class="form-control">
+
+    <label>Apartment</label>
+    <input formControlName="apartment" class="form-control">
+
+    <label>Phone number</label>
+    <input formControlName="phoneNumber" class="form-control">
+
+    <label>Email</label>
+    <input formControlName="email" class="form-control">
 
     <div class="button-container">
-      <button class="btn btn-secondary" type="submit" (click)="addRepairment()">Submit</button>
+      <button class="btn btn-secondary" type="submit" (click)="addCustomer()">Submit</button>
     </div>
   </form>
 </div>

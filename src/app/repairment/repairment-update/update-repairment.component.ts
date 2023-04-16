@@ -24,7 +24,6 @@ export class UpdateRepairmentComponent {
   items: Item[];
   customers: Customer[];
   selectedEmp: any;
-  selectedCus: Customer;
 
   repairmentService: RepairmentService;
   employeeService: EmployeeService;
@@ -57,7 +56,6 @@ export class UpdateRepairmentComponent {
     this.customerService.getAllCustomers().subscribe(
       data => {
         this.customers = data;
-        this.selectedCus = this.customers.find((Customer: any) => Customer.firstName + " " + Customer.lastName === this.repairment.customer)!;
       }
     );
 

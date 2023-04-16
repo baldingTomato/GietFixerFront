@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Address, Customer, CustomerRequest, CustomerService, DeliveryType, Employee, EmployeeService, Item, ItemService, Repairment, RepairmentRequest, RepairmentService, RepairmentStatus } from "../../api";
+import { Address, Customer, CustomerRequest, CustomerService, AddressRequest } from "../../api";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormBaseComponent } from 'src/app/common/form-base/form-base.component';
-import { EnumHelper } from 'src/app/helpers/enum-helper';
 
 @Component({
     selector: 'app-customers-add',
@@ -41,6 +40,7 @@ export class CustomersAddComponent extends FormBaseComponent implements OnInit {
 
     addCustomer() {
         const customer = this.getCustomerFromForm();
+        console.log(customer);
         this.customerService.addCustomer(customer).subscribe(
             result => {
                 console.log('Successfuly added customer');
@@ -52,11 +52,20 @@ export class CustomersAddComponent extends FormBaseComponent implements OnInit {
     };
 
     getCustomerFromForm(){
+        const adressReq = {} as AddressRequest;
+        adressReq.city = this.customerForm.value['city'];
+        adressReq.region = this.customerForm.value['region'];
+        adressReq.country = this.customerForm.value['country'];
+        adressReq.postalCode = this.customerForm.value['postalCode'];
+        adressReq.street = this.customerForm.value['street'];
+        adressReq.apartment = this.customerForm.value['apartment'];
+
         const request = {} as CustomerRequest;
         request.firstName = this.customerForm.value['firstName'];
         request.lastName = this.customerForm.value['lastName'];
         request.email = this.customerForm.value['email'];
         request.phoneNumber = this.customerForm.value['phoneNumber'];
+        request.address = adressReq;
         return request;
     }
 
